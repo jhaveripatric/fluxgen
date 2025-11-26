@@ -1,0 +1,552 @@
+═══════════════════════════════════════════════════════════════════════════════
+                 FLUXGEN EQUIPMENT SOURCING - NEXT STEPS
+                       (Research & Procurement Strategy)
+═══════════════════════════════════════════════════════════════════════════════
+
+CURRENT STATUS:
+✅ Complete equipment list created (63 line items, 116 units)
+✅ Estimated costs assigned ($9.17M total for Phase 1)
+✅ Technical specifications defined
+✅ Lead times estimated
+✅ Priority classifications complete
+
+CRITICAL NOTE:
+All costs in database are ESTIMATES based on industry benchmarks.
+We now need REAL QUOTES from actual suppliers.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1: IMMEDIATE ACTIONS (Next 7-14 Days)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ORDER CRITICAL PATH ITEMS FIRST (Longest Lead Times)
+
+   Priority #1: ROTARY DRYER/CALCINER
+   ├─ Estimated Cost: $485,000
+   ├─ Lead Time: 20 weeks (5 MONTHS)
+   ├─ Supplier Type: North America / Europe
+   └─ Action: Get quotes from 3-5 manufacturers ASAP
+
+   Potential North American Suppliers to Contact:
+   • Feeco International (Green Bay, WI) - feeco.com
+     └─ Specializes in agglomeration equipment, rotary dryers
+     └─ Phone: +1-920-468-1000
+
+   • ThyssenKrupp Polysius (Canada office) - thyssenkrupp.com
+     └─ Industrial dryers and calciners
+     └─ Major European manufacturer with NA support
+
+   • Struthers Industries (Warren, PA) - struthers.com
+     └─ Custom rotary calciners
+     └─ Phone: +1-814-723-7980
+
+   • Custom Furnace Company (BC, Canada) - customfurnace.com
+     └─ Canadian manufacturer, shorter shipping
+     └─ Phone: +1-604-885-7017
+
+   Priority #2: INTENSIVE MIXERS (16 weeks)
+   ├─ Estimated Cost: $180,000 (2 units)
+   ├─ Lead Time: 16 weeks
+   └─ Suppliers: Eirich, Littleford Day, Marion Mixers
+
+   Priority #3: AUTOMATIC BATCHING SYSTEM (16 weeks)
+   ├─ Estimated Cost: $125,000
+   └─ Suppliers: Rice Lake, Mettler Toledo, Schenck Process
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. SUPPLIER RESEARCH STRATEGY - BY EQUIPMENT CATEGORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A. PROCESS EQUIPMENT SUPPLIERS (Mixing, Drying, Agglomeration)
+
+NORTH AMERICAN MANUFACTURERS (Preferred - Shorter Lead, Local Support):
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Company               Equipment Types              Website / Contact       │
+├────────────────────────────────────────────────────────────────────────────┤
+│ Feeco International   Dryers, pelletizers, mix     feeco.com               │
+│ (Wisconsin)           Mixers, agglomeration         +1-920-468-1000         │
+│                                                                             │
+│ Marion Process        Mixers (ribbon, paddle,      mariontechsales.com     │
+│ Solutions (Illinois)  high-shear), blenders        +1-630-382-1800         │
+│                                                                             │
+│ Littleford Day Inc    Intensive mixers,            littlefordday.com       │
+│ (Kentucky)            high-shear, ploughshare      +1-859-254-8200         │
+│                                                                             │
+│ Scott Equipment       Mixers, batching,            scottequipment.com      │
+│ (Iowa)                material handling            +1-515-292-5360         │
+│                                                                             │
+│ WAMGROUP Canada       Screw conveyors, silos,     wamgroup.com            │
+│ (Ontario)             dust collectors              +1-905-565-1101         │
+│                                                                             │
+│ Carrier Vibrating     Screens, conveyors,          carriervibrating.com    │
+│ Equipment (Kentucky)  fluid bed processors         +1-502-969-3171         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+EUROPEAN MANUFACTURERS (High-End, Proven Technology):
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Eirich Machines       Intensive mixers             eirich.com              │
+│ (Germany/USA office)  High-shear, R&D support      +1-847-526-4200 (USA)   │
+│                       Best-in-class quality                                │
+│                                                                             │
+│ Amixon GmbH           Precision mixers,            amixon.com              │
+│ (Germany)             conical, vertical            +49-4826-590-0          │
+│                                                                             │
+│ ThyssenKrupp          Industrial dryers, mills,    thyssenkrupp.com        │
+│ Polysius              complete lines               NA distributor          │
+└────────────────────────────────────────────────────────────────────────────┘
+
+CHINESE MANUFACTURERS (Budget Option, Longer Lead):
+- Henan Hongji Mine (pelletizers, dryers) - hjksjx.com
+- Zhengzhou Taida (rotary equipment) - taida-china.com
+- NOTE: Quality variable, inspect before shipping, local support limited
+
+
+B. PACKAGING EQUIPMENT SUPPLIERS
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Premier Tech (Quebec)     Bagging, palletizing     premiertech.com         │
+│                           Strong Canadian presence  +1-418-831-3809         │
+│                                                                             │
+│ Haver & Boecker (USA)    Bagging, bulk bag fill    haverusa.com            │
+│                          High quality, reliable     +1-816-891-9300         │
+│                                                                             │
+│ Automated Packaging      Bagging, filling          autobag.com             │
+│ Systems (Ontario)        Good Canadian support     +1-905-564-6640         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+C. QC LAB EQUIPMENT SUPPLIERS
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Bruker (XRF)              Chemical analysis       bruker.com               │
+│                           Top-tier XRF systems    +1-800-234-3028          │
+│                           Can outsource initially                          │
+│                                                                             │
+│ Panalytical (XRF)         Alternative XRF         malvernpanalytical.com   │
+│                           Good service network                             │
+│                                                                             │
+│ Instron (Tensile Test)    Mechanical testing      instron.com              │
+│                           Industry standard       +1-800-564-8378          │
+│                                                                             │
+│ Lincoln Electric          SAW welding machine      lincolnelectric.com     │
+│ (Canada)                  Testing equipment       +1-905-639-4458          │
+│                           Strong Canadian presence                         │
+│                                                                             │
+│ Miller Electric           Alternative SAW welder   millerwelds.com         │
+│                           Good support                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+D. MATERIAL HANDLING & STORAGE
+┌────────────────────────────────────────────────────────────────────────────┐
+│ WAMGROUP Canada          Silos, conveyors          wamgroup.com            │
+│                          Screw conveyors           +1-905-565-1101         │
+│                                                                             │
+│ Flexicon Corporation     Bulk handling             flexicon.com            │
+│                          Conveyors, hoppers        +1-888-353-9426         │
+│                                                                             │
+│ Schenck Process (AB)     Weighing, feeding         schenckprocess.com      │
+│                          Batching systems          Calgary office          │
+│                                                                             │
+│ ABC Industries (BC)      Dust collectors           abcdustcollector.com    │
+│                          Baghouse systems          +1-604-823-4236         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+E. UTILITIES & INFRASTRUCTURE
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Atlas Copco (Canada)     Air compressors           atlascopco.com          │
+│                          Industrial air systems    Calgary branch          │
+│                                                                             │
+│ Kaeser Compressors       Rotary screw              us.kaeser.com           │
+│                          Energy efficient          +1-800-777-7873         │
+│                                                                             │
+│ Rockwell Automation      PLC, controls, HMI        rockwellautomation.com  │
+│                          Allen-Bradley             Calgary distributor     │
+│                                                                             │
+│ Siemens (Canada)         PLC, automation           siemens.ca              │
+│                          Alternative controls      Multiple AB offices     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. COST REDUCTION STRATEGIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STRATEGY                           POTENTIAL SAVINGS         RISK/TRADE-OFF
+─────────────────────────────────────────────────────────────────────────────
+Used/Refurbished Equipment         30-50% on select items    Warranty concerns
+(Mixers, forklifts, conveyors)                               Shorter lifespan
+
+Package Deal (Single Vendor)       10-15% bulk discount      Less flexibility
+Complete line from one supplier                               Single point of failure
+
+Chinese Equipment (Non-Critical)   40-60% cost reduction     Quality variability
+Conveyors, hoppers, small items                              Long lead times
+                                                              Limited support
+
+Lease Critical Equipment           Lower upfront CAPEX       Higher total cost
+Dryer, XRF, packaging lines       Preserve cash flow        Less equity
+
+Outsource QC Initially             Save $500K+ in lab       Slower results
+Send samples to commercial labs    equipment upfront        No in-house expertise
+                                  (Maxxam, ALS, SGS)         Delay AWS cert
+
+Phase Lab Equipment               Spread investment          Limited initial
+Start with essential only         over 18-24 months          testing capability
+(XRF, furnace, sieves)            Reduce Year 1 burden       Must upgrade later
+
+North America vs Europe vs China
+├─ North America: 15-20% premium, best support, shortest lead
+├─ Europe: Highest quality, 20-30% premium, good support, 16-20 week lead
+└─ China: 40-60% cheaper, quality variable, 20-24 week lead, language barrier
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. NEXT IMMEDIATE ACTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ Week 1-2: Create RFQ Templates
+   ├─ Dryer/Calciner specifications
+   ├─ Mixer specifications
+   ├─ Batching system specifications
+   └─ Packaging line specifications
+
+☐ Week 1-2: Contact Top 5 Critical Equipment Suppliers
+   ├─ Feeco (dryer/pelletizer)
+   ├─ Eirich or Marion (mixers)
+   ├─ Schenck or Mettler (batching)
+   ├─ Premier Tech or Haver (packaging)
+   └─ Request quotes + site visits
+
+☐ Week 2-3: Research Used Equipment Market
+   ├─ Industrial auction sites (IronPlanet, MachineryMax)
+   ├─ Surplus dealers (Phoenix Equipment, Sigma Equipment)
+   └─ Mixers, conveyors, forklifts candidates
+
+☐ Week 3-4: Lab Equipment Strategy Decision
+   ├─ Option A: Buy XRF now ($285K) for full in-house capability
+   ├─ Option B: Outsource to Maxxam/ALS initially, buy later
+   └─ Must decide before finalizing Phase 1 budget
+
+☐ Week 4: Compile Quote Comparison Matrix
+   ├─ Normalize quotes (FOB vs delivered, installation, training)
+   ├─ Evaluate warranty, service, spare parts availability
+   └─ Calculate true total cost of ownership (TCO)
+
+☐ Week 5-6: Finalize Equipment Selection
+   └─ Lock in suppliers for critical path items (20+ week lead)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. DATABASE QUERIES READY FOR YOU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use these SQL queries to extract equipment lists for RFQs:
+
+-- Get all critical equipment sorted by cost
+SELECT equipment_code, equipment_name, quantity, capacity_specification,
+       estimated_cost_cad, technical_specs, supplier_type, lead_time_weeks
+FROM equipment_machinery
+WHERE priority = 'Critical' AND status = 'Required'
+ORDER BY estimated_cost_cad DESC;
+
+-- Get equipment by category for targeted RFQs
+SELECT * FROM equipment_machinery
+WHERE equipment_category = 'Drying & Calcination'
+  AND status = 'Required'
+ORDER BY estimated_cost_cad DESC;
+
+-- Export complete equipment list with all details
+SELECT * FROM equipment_machinery
+WHERE phase = 'Phase 1 - Year 1' AND status = 'Required'
+ORDER BY equipment_category, estimated_cost_cad DESC;
+
+═══════════════════════════════════════════════════════════════════════════════
+
+READY FOR NEXT PHASE:
+Once you have 3-5 real quotes for critical equipment, we can:
+1. Update database with actual supplier contacts and pricing
+2. Calculate realistic total CAPEX
+3. Build detailed cash flow projections
+4. Create equipment procurement Gantt chart
+5. Identify financing requirements
+
+EOF
+cat /tmp/fluxgen_next_steps_equipment_sourcing.txt
+Output
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                 FLUXGEN EQUIPMENT SOURCING - NEXT STEPS
+                       (Research & Procurement Strategy)
+═══════════════════════════════════════════════════════════════════════════════
+
+CURRENT STATUS:
+✅ Complete equipment list created (63 line items, 116 units)
+✅ Estimated costs assigned ($9.17M total for Phase 1)
+✅ Technical specifications defined
+✅ Lead times estimated
+✅ Priority classifications complete
+
+CRITICAL NOTE:
+All costs in database are ESTIMATES based on industry benchmarks.
+We now need REAL QUOTES from actual suppliers.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1: IMMEDIATE ACTIONS (Next 7-14 Days)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ORDER CRITICAL PATH ITEMS FIRST (Longest Lead Times)
+
+   Priority #1: ROTARY DRYER/CALCINER
+   ├─ Estimated Cost: $485,000
+   ├─ Lead Time: 20 weeks (5 MONTHS)
+   ├─ Supplier Type: North America / Europe
+   └─ Action: Get quotes from 3-5 manufacturers ASAP
+
+   Potential North American Suppliers to Contact:
+   • Feeco International (Green Bay, WI) - feeco.com
+     └─ Specializes in agglomeration equipment, rotary dryers
+     └─ Phone: +1-920-468-1000
+
+   • ThyssenKrupp Polysius (Canada office) - thyssenkrupp.com
+     └─ Industrial dryers and calciners
+     └─ Major European manufacturer with NA support
+
+   • Struthers Industries (Warren, PA) - struthers.com
+     └─ Custom rotary calciners
+     └─ Phone: +1-814-723-7980
+
+   • Custom Furnace Company (BC, Canada) - customfurnace.com
+     └─ Canadian manufacturer, shorter shipping
+     └─ Phone: +1-604-885-7017
+
+   Priority #2: INTENSIVE MIXERS (16 weeks)
+   ├─ Estimated Cost: $180,000 (2 units)
+   ├─ Lead Time: 16 weeks
+   └─ Suppliers: Eirich, Littleford Day, Marion Mixers
+
+   Priority #3: AUTOMATIC BATCHING SYSTEM (16 weeks)
+   ├─ Estimated Cost: $125,000
+   └─ Suppliers: Rice Lake, Mettler Toledo, Schenck Process
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. SUPPLIER RESEARCH STRATEGY - BY EQUIPMENT CATEGORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A. PROCESS EQUIPMENT SUPPLIERS (Mixing, Drying, Agglomeration)
+
+NORTH AMERICAN MANUFACTURERS (Preferred - Shorter Lead, Local Support):
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Company               Equipment Types              Website / Contact       │
+├────────────────────────────────────────────────────────────────────────────┤
+│ Feeco International   Dryers, pelletizers, mix     feeco.com               │
+│ (Wisconsin)           Mixers, agglomeration         +1-920-468-1000         │
+│                                                                             │
+│ Marion Process        Mixers (ribbon, paddle,      mariontechsales.com     │
+│ Solutions (Illinois)  high-shear), blenders        +1-630-382-1800         │
+│                                                                             │
+│ Littleford Day Inc    Intensive mixers,            littlefordday.com       │
+│ (Kentucky)            high-shear, ploughshare      +1-859-254-8200         │
+│                                                                             │
+│ Scott Equipment       Mixers, batching,            scottequipment.com      │
+│ (Iowa)                material handling            +1-515-292-5360         │
+│                                                                             │
+│ WAMGROUP Canada       Screw conveyors, silos,     wamgroup.com            │
+│ (Ontario)             dust collectors              +1-905-565-1101         │
+│                                                                             │
+│ Carrier Vibrating     Screens, conveyors,          carriervibrating.com    │
+│ Equipment (Kentucky)  fluid bed processors         +1-502-969-3171         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+EUROPEAN MANUFACTURERS (High-End, Proven Technology):
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Eirich Machines       Intensive mixers             eirich.com              │
+│ (Germany/USA office)  High-shear, R&D support      +1-847-526-4200 (USA)   │
+│                       Best-in-class quality                                │
+│                                                                             │
+│ Amixon GmbH           Precision mixers,            amixon.com              │
+│ (Germany)             conical, vertical            +49-4826-590-0          │
+│                                                                             │
+│ ThyssenKrupp          Industrial dryers, mills,    thyssenkrupp.com        │
+│ Polysius              complete lines               NA distributor          │
+└────────────────────────────────────────────────────────────────────────────┘
+
+CHINESE MANUFACTURERS (Budget Option, Longer Lead):
+- Henan Hongji Mine (pelletizers, dryers) - hjksjx.com
+- Zhengzhou Taida (rotary equipment) - taida-china.com
+- NOTE: Quality variable, inspect before shipping, local support limited
+
+
+B. PACKAGING EQUIPMENT SUPPLIERS
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Premier Tech (Quebec)     Bagging, palletizing     premiertech.com         │
+│                           Strong Canadian presence  +1-418-831-3809         │
+│                                                                             │
+│ Haver & Boecker (USA)    Bagging, bulk bag fill    haverusa.com            │
+│                          High quality, reliable     +1-816-891-9300         │
+│                                                                             │
+│ Automated Packaging      Bagging, filling          autobag.com             │
+│ Systems (Ontario)        Good Canadian support     +1-905-564-6640         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+C. QC LAB EQUIPMENT SUPPLIERS
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Bruker (XRF)              Chemical analysis       bruker.com               │
+│                           Top-tier XRF systems    +1-800-234-3028          │
+│                           Can outsource initially                          │
+│                                                                             │
+│ Panalytical (XRF)         Alternative XRF         malvernpanalytical.com   │
+│                           Good service network                             │
+│                                                                             │
+│ Instron (Tensile Test)    Mechanical testing      instron.com              │
+│                           Industry standard       +1-800-564-8378          │
+│                                                                             │
+│ Lincoln Electric          SAW welding machine      lincolnelectric.com     │
+│ (Canada)                  Testing equipment       +1-905-639-4458          │
+│                           Strong Canadian presence                         │
+│                                                                             │
+│ Miller Electric           Alternative SAW welder   millerwelds.com         │
+│                           Good support                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+D. MATERIAL HANDLING & STORAGE
+┌────────────────────────────────────────────────────────────────────────────┐
+│ WAMGROUP Canada          Silos, conveyors          wamgroup.com            │
+│                          Screw conveyors           +1-905-565-1101         │
+│                                                                             │
+│ Flexicon Corporation     Bulk handling             flexicon.com            │
+│                          Conveyors, hoppers        +1-888-353-9426         │
+│                                                                             │
+│ Schenck Process (AB)     Weighing, feeding         schenckprocess.com      │
+│                          Batching systems          Calgary office          │
+│                                                                             │
+│ ABC Industries (BC)      Dust collectors           abcdustcollector.com    │
+│                          Baghouse systems          +1-604-823-4236         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+E. UTILITIES & INFRASTRUCTURE
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Atlas Copco (Canada)     Air compressors           atlascopco.com          │
+│                          Industrial air systems    Calgary branch          │
+│                                                                             │
+│ Kaeser Compressors       Rotary screw              us.kaeser.com           │
+│                          Energy efficient          +1-800-777-7873         │
+│                                                                             │
+│ Rockwell Automation      PLC, controls, HMI        rockwellautomation.com  │
+│                          Allen-Bradley             Calgary distributor     │
+│                                                                             │
+│ Siemens (Canada)         PLC, automation           siemens.ca              │
+│                          Alternative controls      Multiple AB offices     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. COST REDUCTION STRATEGIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STRATEGY                           POTENTIAL SAVINGS         RISK/TRADE-OFF
+─────────────────────────────────────────────────────────────────────────────
+Used/Refurbished Equipment         30-50% on select items    Warranty concerns
+(Mixers, forklifts, conveyors)                               Shorter lifespan
+
+Package Deal (Single Vendor)       10-15% bulk discount      Less flexibility
+Complete line from one supplier                               Single point of failure
+
+Chinese Equipment (Non-Critical)   40-60% cost reduction     Quality variability
+Conveyors, hoppers, small items                              Long lead times
+                                                              Limited support
+
+Lease Critical Equipment           Lower upfront CAPEX       Higher total cost
+Dryer, XRF, packaging lines       Preserve cash flow        Less equity
+
+Outsource QC Initially             Save $500K+ in lab       Slower results
+Send samples to commercial labs    equipment upfront        No in-house expertise
+                                  (Maxxam, ALS, SGS)         Delay AWS cert
+
+Phase Lab Equipment               Spread investment          Limited initial
+Start with essential only         over 18-24 months          testing capability
+(XRF, furnace, sieves)            Reduce Year 1 burden       Must upgrade later
+
+North America vs Europe vs China
+├─ North America: 15-20% premium, best support, shortest lead
+├─ Europe: Highest quality, 20-30% premium, good support, 16-20 week lead
+└─ China: 40-60% cheaper, quality variable, 20-24 week lead, language barrier
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. NEXT IMMEDIATE ACTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ Week 1-2: Create RFQ Templates
+   ├─ Dryer/Calciner specifications
+   ├─ Mixer specifications
+   ├─ Batching system specifications
+   └─ Packaging line specifications
+
+☐ Week 1-2: Contact Top 5 Critical Equipment Suppliers
+   ├─ Feeco (dryer/pelletizer)
+   ├─ Eirich or Marion (mixers)
+   ├─ Schenck or Mettler (batching)
+   ├─ Premier Tech or Haver (packaging)
+   └─ Request quotes + site visits
+
+☐ Week 2-3: Research Used Equipment Market
+   ├─ Industrial auction sites (IronPlanet, MachineryMax)
+   ├─ Surplus dealers (Phoenix Equipment, Sigma Equipment)
+   └─ Mixers, conveyors, forklifts candidates
+
+☐ Week 3-4: Lab Equipment Strategy Decision
+   ├─ Option A: Buy XRF now ($285K) for full in-house capability
+   ├─ Option B: Outsource to Maxxam/ALS initially, buy later
+   └─ Must decide before finalizing Phase 1 budget
+
+☐ Week 4: Compile Quote Comparison Matrix
+   ├─ Normalize quotes (FOB vs delivered, installation, training)
+   ├─ Evaluate warranty, service, spare parts availability
+   └─ Calculate true total cost of ownership (TCO)
+
+☐ Week 5-6: Finalize Equipment Selection
+   └─ Lock in suppliers for critical path items (20+ week lead)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. DATABASE QUERIES READY FOR YOU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use these SQL queries to extract equipment lists for RFQs:
+
+-- Get all critical equipment sorted by cost
+SELECT equipment_code, equipment_name, quantity, capacity_specification,
+       estimated_cost_cad, technical_specs, supplier_type, lead_time_weeks
+FROM equipment_machinery
+WHERE priority = 'Critical' AND status = 'Required'
+ORDER BY estimated_cost_cad DESC;
+
+-- Get equipment by category for targeted RFQs
+SELECT * FROM equipment_machinery
+WHERE equipment_category = 'Drying & Calcination'
+  AND status = 'Required'
+ORDER BY estimated_cost_cad DESC;
+
+-- Export complete equipment list with all details
+SELECT * FROM equipment_machinery
+WHERE phase = 'Phase 1 - Year 1' AND status = 'Required'
+ORDER BY equipment_category, estimated_cost_cad DESC;
+
+═══════════════════════════════════════════════════════════════════════════════
+
+READY FOR NEXT PHASE:
+Once you have 3-5 real quotes for critical equipment, we can:
+1. Update database with actual supplier contacts and pricing
+2. Calculate realistic total CAPEX
+3. Build detailed cash flow projections
+4. Create equipment procurement Gantt chart
+5. Identify financing requirements

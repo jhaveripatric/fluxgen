@@ -1,0 +1,480 @@
+═══════════════════════════════════════════════════════════════════════════════
+              FLUXGEN EQUIPMENT LIST - BY PROCESS FLOW
+                    (From Raw Material to Finished Product)
+═══════════════════════════════════════════════════════════════════════════════
+
+PROCESS STAGE 1: RAW MATERIAL RECEIVING & STORAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+RMH-001        | Bulk Storage Silos (Silica)          |  2  | $85,000
+RMH-002        | Bulk Storage Silos (Dolomite)        |  2  | $75,000
+RMH-003        | Bulk Storage Silos (Small Volume)    |  4  | $120,000
+RMH-004        | Big Bag Unloading Station            |  2  | $25,000
+RMH-005        | Bucket Elevator (Raw Materials)      |  3  | $65,000
+RMH-006        | Screw Conveyor (Transfer)            |  5  | $75,000
+               |                          SUBTOTAL:        | $445,000
+
+Purpose: Receive bulk deliveries (trucks, railcars, bulk bags), transfer to
+elevated silos, maintain inventory segregation, prevent contamination.
+
+Critical Note: NO crushing/milling equipment. All materials arrive pre-sized.
+
+
+PROCESS STAGE 2: BATCHING & WEIGHING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+BAT-001        | Automatic Batching System (Main)     |  1  | $125,000  ⭐ CRITICAL
+BAT-002        | Weighing Hopper (Large Capacity)     |  3  | $45,000
+BAT-003        | Weighing Hopper (Small Capacity)     |  4  | $60,000
+BAT-004        | Floor Scale (Heavy Duty)             |  2  | $8,000
+BAT-005        | Bench Scale (Precision)              |  3  | $4,500
+               |                          SUBTOTAL:        | $242,500
+
+Purpose: Accurate formulation control per AWS specifications. Recipe management.
+Each flux grade requires precise ingredient ratios (±0.1-0.2% accuracy).
+
+Cycle Time: 15-20 minutes per batch (1500-2000 kg)
+
+
+PROCESS STAGE 3: DRY MIXING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MIX-001        | Ribbon Blender (Dry Mixing)          |  1  | $95,000   ⭐ CRITICAL
+               |                          SUBTOTAL:        | $95,000
+
+Purpose: Homogenize all powder materials before binder addition.
+Mixing Time: 15-20 minutes per batch
+Capacity: 1500-2000 kg batch
+
+Quality Goal: Coefficient of variation (CoV) < 5% for uniform distribution
+
+
+PROCESS STAGE 4: WET MIXING & BINDER ADDITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MIX-002        | Intensive Mixer (Wet Mixing)         |  2  | $180,000  ⭐ CRITICAL
+MIX-004        | Liquid Binder Dosing System          |  2  | $35,000   ⭐ CRITICAL
+               |                          SUBTOTAL:        | $215,000
+
+Purpose: Mix sodium silicate binder (6-10% by weight) with dry blend to create
+pelletizable mass. High-shear action coats particles and creates nuclei.
+
+Mixing Time: 8-15 minutes per batch
+Binder Addition Rate: 50-200 L/hr (controlled spray)
+
+Critical Parameter: Moisture content 8-12% for optimal pelletization
+
+
+PROCESS STAGE 5: AGGLOMERATION (PELLETIZATION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+AGG-001        | Disc Pelletizer (Pan Granulator)     |  2  | $135,000  ⭐ CRITICAL
+AGG-003        | Green Pellet Screening               |  1  | $45,000
+               |                          SUBTOTAL:        | $180,000
+
+Purpose: Form spherical pellets 1-4mm diameter through rolling action.
+Capacity: 500-1000 kg/hr per unit (1000 kg/hr total)
+Residence Time: 5-10 minutes per pan
+
+Target: 70-80% pellets in 1.0-2.5mm range (most common SAW flux size)
+Oversize/Undersize: Recycled back to mixer
+
+
+PROCESS STAGE 6: DRYING & CALCINATION (MOST EXPENSIVE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+DRY-001        | Rotary Dryer/Calciner (Primary)      |  1  | $485,000  ⭐ CRITICAL
+DRY-003        | Hot Air Generator (Primary)          |  2  | $125,000  ⭐ CRITICAL
+DRY-004        | Cooling Screw Conveyor               |  1  | $75,000   ⭐ CRITICAL
+DRY-006        | Baghouse Dust Collector (Dryer)      |  1  | $155,000  ⭐ MANDATORY
+               |                          SUBTOTAL:        | $840,000
+
+Purpose:
+1. Remove moisture (8-12% → <0.5%)
+2. Calcine at 400-800°C to develop pellet strength
+3. Drive off volatiles and bind particles
+4. Cool to <80°C for safe handling
+
+Residence Time: 30-60 minutes in dryer
+Fuel: Natural gas (major OPEX component)
+Emissions: Captured by baghouse (environmental compliance)
+
+⚠️  CRITICAL: Longest lead time (20 weeks). Order FIRST.
+
+
+PROCESS STAGE 7: SCREENING & CLASSIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+SCR-001        | Vibrating Screen (Multi-Deck)        |  2  | $95,000   ⭐ CRITICAL
+SCR-003        | Magnetic Separator                   |  2  | $35,000
+               |                          SUBTOTAL:        | $130,000
+
+Purpose: Classify into AWS standard sizes:
+- <0.5mm (fines, recycled or sold separately)
+- 0.5-1.0mm
+- 1.0-2.0mm (most common)
+- 2.0-4.0mm
+- >4.0mm (oversize, crushed and recycled)
+
+Magnetic separation removes tramp iron (weld defect prevention)
+
+
+PROCESS STAGE 8: FINISHED PRODUCT STORAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MAT-005        | Finished Product Storage Silos       |  4  | $180,000
+               |                          SUBTOTAL:        | $180,000
+
+Purpose: Store finished flux by grade/size before packaging
+Capacity: 30-50 MT each (120-200 MT total storage)
+Enables: Batch segregation, quality hold, continuous packaging operation
+
+
+PROCESS STAGE 9: PACKAGING & SHIPPING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+PKG-001        | Automatic Bagging Machine (25kg)     |  2  | $165,000  ⭐ CRITICAL
+PKG-002        | Bulk Bag Filling Station             |  1  | $75,000
+PKG-003        | Pallet Wrapper (Automatic)           |  1  | $28,000
+PKG-005        | Label Printer & Applicator           |  2  | $18,000
+MAT-002        | Forklift (Propane)                   |  2  | $75,000
+MAT-003        | Pallet Jack (Electric)               |  3  | $12,000
+FAC-002        | Warehouse Pallet Racking             |  1  | $95,000
+FAC-006        | Loading Dock Equipment               |  1  | $45,000
+               |                          SUBTOTAL:        | $513,000
+
+Purpose: Package in standard formats, palletize, label, and ship
+Primary Package: 25kg multi-wall paper bags (40-50 bags/pallet = 1-1.25 MT)
+Secondary: 500-1000 kg bulk bags (FIBC) for high-volume customers
+
+Capacity: 8-12 bags/min per line = 12-18 MT/hr (two lines)
+Shifts Required: 1 shift @ 500 MT/year, 2 shifts @ 1000 MT/year
+
+
+PROCESS STAGE 10: QUALITY CONTROL LAB (AWS COMPLIANCE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+QC-001         | XRF Spectrometer                     |  1  | $285,000  ⭐ CRITICAL
+QC-002         | Muffle Furnace (High Temp)           |  2  | $22,000   ⭐ CRITICAL
+QC-005         | Sieve Shaker (Mechanical)            |  2  | $18,000   ⭐ CRITICAL
+QC-009         | Submerged Arc Welding Machine        |  1  | $85,000   ⭐ CRITICAL
+QC-010         | Tensile Testing Machine              |  1  | $125,000  ⭐ CRITICAL
+QC-011         | Impact Testing Machine (Charpy)      |  1  | $75,000   ⭐ CRITICAL
+QC-012         | Metallurgical Microscope             |  1  | $35,000
+QC-013         | Sample Preparation Equipment         |  1  | $45,000
+QC-016         | Lab Fume Hood                        |  2  | $28,000
+               | (+ 8 other lab instruments)          |     | $156,600
+               |                          SUBTOTAL:        | $873,600
+
+Purpose: AWS A5.17/A5.23 Compliance Testing
+Tests Performed:
+  - Chemical composition (XRF)
+  - Particle size distribution
+  - Moisture content, LOI
+  - Weld procedure qualification
+  - Mechanical properties (tensile, impact, bend)
+  - Microstructure examination
+  - Diffusible hydrogen (for low-H grades)
+
+Lab Staff Required: 2-3 technicians (1 chemist, 1 metallurgist, 1 weld tech)
+
+
+SUPPORT SYSTEMS (UTILITIES, SAFETY, INFRASTRUCTURE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+UTL-001        | Air Compressor (Rotary Screw)        |  2  | $85,000   ⭐ CRITICAL
+UTL-004        | Electrical Distribution System       |  1  | $185,000  ⭐ CRITICAL
+UTL-005        | Natural Gas Distribution             |  1  | $55,000   ⭐ CRITICAL
+UTL-006        | PLC Control System (Main)            |  1  | $95,000   ⭐ CRITICAL
+SAF-001        | Fire Suppression System              |  1  | $75,000   ⭐ MANDATORY
+SAF-002        | Combustible Dust Collection          |  1  | $195,000  ⭐ MANDATORY
+SAF-003        | Eyewash/Safety Shower Stations       |  4  | $16,000   ⭐ MANDATORY
+SAF-004        | Gas Detection System                 |  1  | $25,000
+SAF-005        | Wastewater Treatment (Basic)         |  1  | $85,000
+FAC-003        | LED Lighting (Complete Facility)     |  1  | $65,000   ⭐ CRITICAL
+FAC-004        | HVAC System                          |  1  | $125,000  ⭐ CRITICAL
+FAC-005        | Security System                      |  1  | $35,000
+               |                          SUBTOTAL:        | $1,041,000
+
+Purpose: Plant infrastructure, safety compliance, environmental protection
+
+⚠️  NON-NEGOTIABLE SAFETY ITEMS:
+- Fire suppression (insurance + regulatory)
+- Combustible dust control (NFPA 654)
+- Gas detection (natural gas operation)
+- Eyewash stations (chemical handling)
+- Wastewater treatment (discharge permit)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                        TOTAL EQUIPMENT INVESTMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1 Required Equipment:               CAD $9,170,100
+Estimated Installation (15-20%):          CAD $1,375,000 - $1,834,000
+Commissioning & Startup (5%):             CAD $458,500
+Contingency (10%):                        CAD $917,000
+───────────────────────────────────────────────────────────────────────────────
+TOTAL PROJECT CAPEX (EQUIPMENT):          CAD $11,900,000 - $12,400,000
+
+NOTE: Does NOT include:
+- Building construction/lease
+- Land purchase
+- Working capital
+- Initial raw material inventory
+- Spare parts inventory
+- Tools and consumables
+
+EOF
+cat /tmp/fluxgen_equipment_by_process_flow.txt
+Output
+
+
+═══════════════════════════════════════════════════════════════════════════════
+              FLUXGEN EQUIPMENT LIST - BY PROCESS FLOW
+                    (From Raw Material to Finished Product)
+═══════════════════════════════════════════════════════════════════════════════
+
+PROCESS STAGE 1: RAW MATERIAL RECEIVING & STORAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+RMH-001        | Bulk Storage Silos (Silica)          |  2  | $85,000
+RMH-002        | Bulk Storage Silos (Dolomite)        |  2  | $75,000
+RMH-003        | Bulk Storage Silos (Small Volume)    |  4  | $120,000
+RMH-004        | Big Bag Unloading Station            |  2  | $25,000
+RMH-005        | Bucket Elevator (Raw Materials)      |  3  | $65,000
+RMH-006        | Screw Conveyor (Transfer)            |  5  | $75,000
+               |                          SUBTOTAL:        | $445,000
+
+Purpose: Receive bulk deliveries (trucks, railcars, bulk bags), transfer to
+elevated silos, maintain inventory segregation, prevent contamination.
+
+Critical Note: NO crushing/milling equipment. All materials arrive pre-sized.
+
+
+PROCESS STAGE 2: BATCHING & WEIGHING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+BAT-001        | Automatic Batching System (Main)     |  1  | $125,000  ⭐ CRITICAL
+BAT-002        | Weighing Hopper (Large Capacity)     |  3  | $45,000
+BAT-003        | Weighing Hopper (Small Capacity)     |  4  | $60,000
+BAT-004        | Floor Scale (Heavy Duty)             |  2  | $8,000
+BAT-005        | Bench Scale (Precision)              |  3  | $4,500
+               |                          SUBTOTAL:        | $242,500
+
+Purpose: Accurate formulation control per AWS specifications. Recipe management.
+Each flux grade requires precise ingredient ratios (±0.1-0.2% accuracy).
+
+Cycle Time: 15-20 minutes per batch (1500-2000 kg)
+
+
+PROCESS STAGE 3: DRY MIXING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MIX-001        | Ribbon Blender (Dry Mixing)          |  1  | $95,000   ⭐ CRITICAL
+               |                          SUBTOTAL:        | $95,000
+
+Purpose: Homogenize all powder materials before binder addition.
+Mixing Time: 15-20 minutes per batch
+Capacity: 1500-2000 kg batch
+
+Quality Goal: Coefficient of variation (CoV) < 5% for uniform distribution
+
+
+PROCESS STAGE 4: WET MIXING & BINDER ADDITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MIX-002        | Intensive Mixer (Wet Mixing)         |  2  | $180,000  ⭐ CRITICAL
+MIX-004        | Liquid Binder Dosing System          |  2  | $35,000   ⭐ CRITICAL
+               |                          SUBTOTAL:        | $215,000
+
+Purpose: Mix sodium silicate binder (6-10% by weight) with dry blend to create
+pelletizable mass. High-shear action coats particles and creates nuclei.
+
+Mixing Time: 8-15 minutes per batch
+Binder Addition Rate: 50-200 L/hr (controlled spray)
+
+Critical Parameter: Moisture content 8-12% for optimal pelletization
+
+
+PROCESS STAGE 5: AGGLOMERATION (PELLETIZATION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+AGG-001        | Disc Pelletizer (Pan Granulator)     |  2  | $135,000  ⭐ CRITICAL
+AGG-003        | Green Pellet Screening               |  1  | $45,000
+               |                          SUBTOTAL:        | $180,000
+
+Purpose: Form spherical pellets 1-4mm diameter through rolling action.
+Capacity: 500-1000 kg/hr per unit (1000 kg/hr total)
+Residence Time: 5-10 minutes per pan
+
+Target: 70-80% pellets in 1.0-2.5mm range (most common SAW flux size)
+Oversize/Undersize: Recycled back to mixer
+
+
+PROCESS STAGE 6: DRYING & CALCINATION (MOST EXPENSIVE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+DRY-001        | Rotary Dryer/Calciner (Primary)      |  1  | $485,000  ⭐ CRITICAL
+DRY-003        | Hot Air Generator (Primary)          |  2  | $125,000  ⭐ CRITICAL
+DRY-004        | Cooling Screw Conveyor               |  1  | $75,000   ⭐ CRITICAL
+DRY-006        | Baghouse Dust Collector (Dryer)      |  1  | $155,000  ⭐ MANDATORY
+               |                          SUBTOTAL:        | $840,000
+
+Purpose:
+1. Remove moisture (8-12% → <0.5%)
+2. Calcine at 400-800°C to develop pellet strength
+3. Drive off volatiles and bind particles
+4. Cool to <80°C for safe handling
+
+Residence Time: 30-60 minutes in dryer
+Fuel: Natural gas (major OPEX component)
+Emissions: Captured by baghouse (environmental compliance)
+
+⚠️  CRITICAL: Longest lead time (20 weeks). Order FIRST.
+
+
+PROCESS STAGE 7: SCREENING & CLASSIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+SCR-001        | Vibrating Screen (Multi-Deck)        |  2  | $95,000   ⭐ CRITICAL
+SCR-003        | Magnetic Separator                   |  2  | $35,000
+               |                          SUBTOTAL:        | $130,000
+
+Purpose: Classify into AWS standard sizes:
+- <0.5mm (fines, recycled or sold separately)
+- 0.5-1.0mm
+- 1.0-2.0mm (most common)
+- 2.0-4.0mm
+- >4.0mm (oversize, crushed and recycled)
+
+Magnetic separation removes tramp iron (weld defect prevention)
+
+
+PROCESS STAGE 8: FINISHED PRODUCT STORAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+MAT-005        | Finished Product Storage Silos       |  4  | $180,000
+               |                          SUBTOTAL:        | $180,000
+
+Purpose: Store finished flux by grade/size before packaging
+Capacity: 30-50 MT each (120-200 MT total storage)
+Enables: Batch segregation, quality hold, continuous packaging operation
+
+
+PROCESS STAGE 9: PACKAGING & SHIPPING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+PKG-001        | Automatic Bagging Machine (25kg)     |  2  | $165,000  ⭐ CRITICAL
+PKG-002        | Bulk Bag Filling Station             |  1  | $75,000
+PKG-003        | Pallet Wrapper (Automatic)           |  1  | $28,000
+PKG-005        | Label Printer & Applicator           |  2  | $18,000
+MAT-002        | Forklift (Propane)                   |  2  | $75,000
+MAT-003        | Pallet Jack (Electric)               |  3  | $12,000
+FAC-002        | Warehouse Pallet Racking             |  1  | $95,000
+FAC-006        | Loading Dock Equipment               |  1  | $45,000
+               |                          SUBTOTAL:        | $513,000
+
+Purpose: Package in standard formats, palletize, label, and ship
+Primary Package: 25kg multi-wall paper bags (40-50 bags/pallet = 1-1.25 MT)
+Secondary: 500-1000 kg bulk bags (FIBC) for high-volume customers
+
+Capacity: 8-12 bags/min per line = 12-18 MT/hr (two lines)
+Shifts Required: 1 shift @ 500 MT/year, 2 shifts @ 1000 MT/year
+
+
+PROCESS STAGE 10: QUALITY CONTROL LAB (AWS COMPLIANCE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+QC-001         | XRF Spectrometer                     |  1  | $285,000  ⭐ CRITICAL
+QC-002         | Muffle Furnace (High Temp)           |  2  | $22,000   ⭐ CRITICAL
+QC-005         | Sieve Shaker (Mechanical)            |  2  | $18,000   ⭐ CRITICAL
+QC-009         | Submerged Arc Welding Machine        |  1  | $85,000   ⭐ CRITICAL
+QC-010         | Tensile Testing Machine              |  1  | $125,000  ⭐ CRITICAL
+QC-011         | Impact Testing Machine (Charpy)      |  1  | $75,000   ⭐ CRITICAL
+QC-012         | Metallurgical Microscope             |  1  | $35,000
+QC-013         | Sample Preparation Equipment         |  1  | $45,000
+QC-016         | Lab Fume Hood                        |  2  | $28,000
+               | (+ 8 other lab instruments)          |     | $156,600
+               |                          SUBTOTAL:        | $873,600
+
+Purpose: AWS A5.17/A5.23 Compliance Testing
+Tests Performed:
+  - Chemical composition (XRF)
+  - Particle size distribution
+  - Moisture content, LOI
+  - Weld procedure qualification
+  - Mechanical properties (tensile, impact, bend)
+  - Microstructure examination
+  - Diffusible hydrogen (for low-H grades)
+
+Lab Staff Required: 2-3 technicians (1 chemist, 1 metallurgist, 1 weld tech)
+
+
+SUPPORT SYSTEMS (UTILITIES, SAFETY, INFRASTRUCTURE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Code | Equipment Name                       | Qty | Cost (CAD)
+───────────────┼──────────────────────────────────────┼─────┼────────────
+UTL-001        | Air Compressor (Rotary Screw)        |  2  | $85,000   ⭐ CRITICAL
+UTL-004        | Electrical Distribution System       |  1  | $185,000  ⭐ CRITICAL
+UTL-005        | Natural Gas Distribution             |  1  | $55,000   ⭐ CRITICAL
+UTL-006        | PLC Control System (Main)            |  1  | $95,000   ⭐ CRITICAL
+SAF-001        | Fire Suppression System              |  1  | $75,000   ⭐ MANDATORY
+SAF-002        | Combustible Dust Collection          |  1  | $195,000  ⭐ MANDATORY
+SAF-003        | Eyewash/Safety Shower Stations       |  4  | $16,000   ⭐ MANDATORY
+SAF-004        | Gas Detection System                 |  1  | $25,000
+SAF-005        | Wastewater Treatment (Basic)         |  1  | $85,000
+FAC-003        | LED Lighting (Complete Facility)     |  1  | $65,000   ⭐ CRITICAL
+FAC-004        | HVAC System                          |  1  | $125,000  ⭐ CRITICAL
+FAC-005        | Security System                      |  1  | $35,000
+               |                          SUBTOTAL:        | $1,041,000
+
+Purpose: Plant infrastructure, safety compliance, environmental protection
+
+⚠️  NON-NEGOTIABLE SAFETY ITEMS:
+- Fire suppression (insurance + regulatory)
+- Combustible dust control (NFPA 654)
+- Gas detection (natural gas operation)
+- Eyewash stations (chemical handling)
+- Wastewater treatment (discharge permit)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                        TOTAL EQUIPMENT INVESTMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1 Required Equipment:               CAD $9,170,100
+Estimated Installation (15-20%):          CAD $1,375,000 - $1,834,000
+Commissioning & Startup (5%):             CAD $458,500
+Contingency (10%):                        CAD $917,000
+───────────────────────────────────────────────────────────────────────────────
+TOTAL PROJECT CAPEX (EQUIPMENT):          CAD $11,900,000 - $12,400,000
+
+NOTE: Does NOT include:
+- Building construction/lease
+- Land purchase
+- Working capital
+- Initial raw material inventory
+- Spare parts inventory
+- Tools and consumables

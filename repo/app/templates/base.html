@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FluxGen Industries - Document Generation System{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom FluxGen Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fluxgen-navy': '#1F3A4A',
+                        'fluxgen-orange': '#C87533',
+                        'fluxgen-gray': '#6B7280',
+                        'fluxgen-light-gray': '#F3F4F6'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-fluxgen-navy text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex items-center">
+                        <div class="text-2xl font-bold">FluxGen</div>
+                        <div class="ml-2 text-fluxgen-orange text-sm">Industries</div>
+                    </a>
+                    <div class="ml-4 text-sm text-gray-300">Document Generation System</div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="{{ url_for('index') }}" 
+                       class="nav-link {% if request.endpoint == 'index' %}bg-fluxgen-orange{% endif %} px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">
+                        Dashboard
+                    </a>
+                    <a href="{{ url_for('editor') }}" 
+                       class="nav-link {% if request.endpoint == 'editor' %}bg-fluxgen-orange{% endif %} px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">
+                        Data Editor
+                    </a>
+                    <a href="{{ url_for('documents') }}" 
+                       class="nav-link {% if request.endpoint == 'documents' %}bg-fluxgen-orange{% endif %} px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">
+                        Documents
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-fluxgen-navy">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ url_for('index') }}" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">Dashboard</a>
+                <a href="{{ url_for('editor') }}" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">Data Editor</a>
+                <a href="{{ url_for('documents') }}" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-fluxgen-orange transition-colors">Documents</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Flash Messages -->
+    <div id="flash-messages" class="fixed top-20 right-4 z-50 space-y-2"></div>
+    
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center text-sm text-gray-600">
+                <div>
+                    © 2025 FluxGen Industries Ltd. All rights reserved.
+                </div>
+                <div class="flex space-x-4">
+                    <span>Airdrie, Alberta, Canada</span>
+                    <span>|</span>
+                    <span>Document Generation System v1.0</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    
+    <!-- Page-specific JavaScript -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>
