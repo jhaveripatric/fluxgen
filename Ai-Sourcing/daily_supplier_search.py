@@ -1,4 +1,3 @@
-daily_supplier_search.py
 # !/usr/bin/env python3
 """
 FluxGen Automated Supplier Search System
@@ -8,9 +7,15 @@ Main automation script for finding and ranking suppliers
 import sqlite3
 import json
 import re
+import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Tuple
 import argparse
+from anthropic import Anthropic
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 
 class SupplierSearchAutomation:
@@ -20,6 +25,12 @@ class SupplierSearchAutomation:
         self.db_path = db_path
         self.conn = None
         self.cursor = None
+        
+        # Initialize Anthropic client
+        api_key = os.getenv('ANTHROPIC_API_KEY')
+        if not api_key:
+            raise ValueError("ANTHROPIC_API_KEY not found in environment variables")
+        self.client = Anthropic(api_key=api_key)
 
     def connect(self):
         """Connect to database"""
@@ -72,33 +83,66 @@ class SupplierSearchAutomation:
 
         return query
 
-    def perform_web_search(self, query: str) -> Tuple[List[Dict], str]:
+    def perform_web_search(self, query: str, max_results: int = 10) -> Tuple[List[Dict], str]:
         """
-        Perform web search and return structured results
-
-        NOTE: This is a placeholder that shows the expected structure.
-        In production, you would call web_search tool here through Claude API.
+        Perform web search using Claude with web_search tool
 
         Returns:
             Tuple of (search_results, raw_response)
         """
-        # PLACEHOLDER: Replace with actual web_search tool call
-        # In real implementation, this would call the web_search MCP tool
-
         print(f"🔍 Searching: {query}")
-        print("   [This is a placeholder - integrate web_search tool here]")
-
-        # Placeholder structure for what web search should return
-        placeholder_results = [
-            {
-                'title': 'Example Supplier Company',
-                'url': 'https://example.com',
-                'snippet': 'Leading supplier of industrial equipment...',
-                'domain': 'example.com'
-            }
-        ]
-
-        return placeholder_results, json.dumps(placeholder_results, indent=2)
+        
+        try:
+            # Call Claude API with web_search tool
+            response = self.client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=4096,
+                tools=[{"type": "web_search_tool_20241209"}],
+                messages=[{
+                    "role": "user",
+                    "content": f"""Search the web for: {query}
+                    
+                    Return the results as a JSON array with objects containing:
+                    - title: company/page title
+                    - url: website URL
+                    - snippet: description/snippet
+                    - domain: domain name
+                    
+                    Focus on finding actual supplier companies, manufacturers, or distributors.
+                    Skip general information pages, news articles, or non-supplier content.
+                    
+                    Return ONLY the JSON array, no other text."""
+                }]
+            )
+            
+            # Parse the response
+            search_results = []
+            raw_content = ""
+            
+            for block in response.content:
+                if block.type == "text":
+                    raw_content += block.text
+                    # Try to parse JSON from text
+                    try:
+                        # Look for JSON array in the response
+                        text = block.text.strip()
+                        if text.startswith('['):
+                            search_results = json.loads(text)
+                        else:
+                            # Try to find JSON within the text
+                            import re
+                            json_match = re.search(r'\[.*\]', text, re.DOTALL)
+                            if json_match:
+                                search_results = json.loads(json_match.group())
+                    except json.JSONDecodeError:
+                        print(f"   ⚠️  Could not parse JSON from response")
+                        
+            print(f"   ✅ Found {len(search_results)} results")
+            return search_results[:max_results], raw_content
+            
+        except Exception as e:
+            print(f"   ❌ Search error: {e}")
+            return [], str(e)
 
     def extract_supplier_info(self, search_result: Dict) -> Optional[Dict]:
         """Extract supplier information from search result"""
@@ -113,6 +157,12 @@ class SupplierSearchAutomation:
         # Extract website
         website = search_result.get('url', '')
         domain = search_result.get('domain', '')
+        
+        # If domain not provided, extract from URL
+        if not domain and website:
+            from urllib.parse import urlparse
+            parsed = urlparse(website)
+            domain = parsed.netloc
 
         # Extract snippet info
         snippet = search_result.get('snippet', '')
@@ -120,19 +170,28 @@ class SupplierSearchAutomation:
         # Try to extract location from snippet
         location_info = self._extract_location(snippet)
 
+        # Determine supplier type based on location
+        country = location_info.get('country', 'Unknown')
+        if country in ['USA', 'Canada']:
+            supplier_type = 'Local'
+        elif country == 'Unknown':
+            supplier_type = 'Distributor'  # Default for unknown locations
+        else:
+            supplier_type = 'Import'
+
         supplier_data = {
             'company_name': company_name,
             'website': website,
             'address_line1': None,
             'city': location_info.get('city'),
             'province_state': location_info.get('state'),
-            'country': location_info.get('country', 'Unknown'),
+            'country': country,
             'postal_code': None,
             'contact_person': None,
             'phone': self._extract_phone(snippet),
             'email': self._extract_email(snippet),
             'materials_supplied': '',  # Will be set by caller
-            'supplier_type': 'Online',
+            'supplier_type': supplier_type,  # Must be: Local, Regional, Import, or Distributor
             'priority': 'Secondary',
             'status': 'Prospect',
             'notes': f"Found via web search: {snippet[:200]}",
@@ -307,7 +366,7 @@ class SupplierSearchAutomation:
         print(f"\n📝 Query: {search_query}")
 
         # Perform web search
-        search_results, raw_response = self.perform_web_search(search_query)
+        search_results, raw_response = self.perform_web_search(search_query, max_results=max_suppliers)
 
         # Process results
         suppliers_saved = 0
