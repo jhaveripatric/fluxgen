@@ -1,0 +1,8 @@
+name = "fluxgen-contact-cards"
+compatibility_date = "2025-11-29"
+
+[site]
+bucket = "."
+
+# Static assets configuration
+# This tells Cloudflare to serve HTML files directly
