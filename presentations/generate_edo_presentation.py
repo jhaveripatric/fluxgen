@@ -11,6 +11,13 @@ from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 import os
 
+# Helper function to add speaker notes
+def add_speaker_notes(slide, notes_text):
+    """Add speaker notes to a slide"""
+    notes_slide = slide.notes_slide
+    text_frame = notes_slide.notes_text_frame
+    text_frame.text = notes_text
+
 # FluxGen Brand Colors
 DARK_BLUE = RGBColor(44, 62, 80)      # #2C3E50
 COPPER = RGBColor(184, 115, 51)       # #B87333

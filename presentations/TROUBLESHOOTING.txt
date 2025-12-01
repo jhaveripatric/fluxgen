@@ -1,0 +1,85 @@
+════════════════════════════════════════════════════════════════
+  TROUBLESHOOTING: "File format is invalid" Error
+════════════════════════════════════════════════════════════════
+
+Pratik, the error you're getting is likely due to how speaker notes
+are being added to the PowerPoint file.
+
+Let's diagnose and fix this step by step.
+
+────────────────────────────────────────────────────────────────
+  STEP 1: Test if basic PowerPoint generation works
+────────────────────────────────────────────────────────────────
+
+Run this test script:
+
+cd /Users/pratikjhaveri/FluxGen/presentations
+chmod +x test_fix.sh
+./test_fix.sh
+
+This will:
+1. Check your python-pptx version
+2. Generate a simple 1-slide presentation
+3. Tell you if it saved successfully
+
+────────────────────────────────────────────────────────────────
+  STEP 2: Try to open the test file
+────────────────────────────────────────────────────────────────
+
+After running the test, try to open:
+FluxGen-EDO-Presentation-COMPLETE.pptx
+
+Does it open? 
+✅ YES → Great! The issue was with the full version. I'll fix it.
+❌ NO → The issue is with python-pptx installation.
+
+────────────────────────────────────────────────────────────────
+  IF TEST FILE ALSO FAILS TO OPEN
+────────────────────────────────────────────────────────────────
+
+The problem is likely python-pptx version. Try:
+
+cd /Users/pratikjhaveri/FluxGen
+source venv/bin/activate
+pip uninstall python-pptx -y
+pip install python-pptx==0.6.21 --break-system-packages
+
+Then run the test again.
+
+────────────────────────────────────────────────────────────────
+  IF TEST FILE OPENS SUCCESSFULLY
+────────────────────────────────────────────────────────────────
+
+Good news! The basic generation works.
+
+The issue is with the full 12-slide version. 
+
+Let me know it opens and I'll create a working full version 
+that removes the problematic speaker notes function.
+
+────────────────────────────────────────────────────────────────
+  ALTERNATIVE: Generate without speaker notes first
+────────────────────────────────────────────────────────────────
+
+I can create a version WITHOUT speaker notes that will definitely
+work, then we can add notes manually in PowerPoint/Google Slides.
+
+Would you prefer:
+A) Fix the speaker notes code (my recommendation - try test first)
+B) Generate without speaker notes, add them manually later
+C) Wait for me to create a PDF with speaker notes separately
+
+────────────────────────────────────────────────────────────────
+  WHAT TO DO NOW
+────────────────────────────────────────────────────────────────
+
+1. Run: ./test_fix.sh
+2. Try to open the test file
+3. Tell me:
+   - Did the test file open?
+   - What version of python-pptx do you have? (shown in test output)
+   - Any error messages from the test script?
+
+Then I'll provide the exact fix!
+
+════════════════════════════════════════════════════════════════
