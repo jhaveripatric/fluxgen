@@ -50,12 +50,14 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         # Get team member data
         team_members = self.db.get_team_members()
         
-        overview_text = f"""
+        # Break into smaller sections to prevent overflow
+        intro_text = """
         FluxGen Industries is led by a highly experienced founding team with complementary expertise in 
         manufacturing operations, business development, supply chain management, and quality control. 
         The team combines decades of collective experience in welding consumables manufacturing and industrial operations.
+        """
         
-        <br/>
+        philosophy_text = """
         <b>Leadership Philosophy:</b>
         <br/>
         • Customer-focused approach with emphasis on quality and service
@@ -67,8 +69,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Strategic thinking balanced with hands-on execution
         <br/>
         • Commitment to safety, environmental responsibility, and community engagement
-        <br/>
+        """
         
+        strengths_text = """
         <b>Team Strengths:</b>
         <br/>
         • Proven track record in scaling manufacturing operations globally
@@ -82,7 +85,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Operational excellence in logistics, quality control, and compliance
         """
         
-        self.add_body_text(overview_text)
+        self.add_body_text(intro_text)
+        self.add_body_text(philosophy_text)
+        self.add_body_text(strengths_text)
         
         if team_members:
             # Team summary table
@@ -196,10 +201,11 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         
         governance_text = """
         <b>Corporate Governance:</b>
-        FluxGen Industries will establish a Board of Directors with independent oversight and industry expertise. 
+        FluxGen Industries will establish a Board of Directors with independent oversight and industry expertise.
         The board will provide strategic guidance, risk oversight, and performance monitoring.
-        
-        <br/>
+        """
+
+        management_philosophy_text = """
         <b>Management Philosophy:</b>
         <br/>
         • Flat organizational structure promoting communication and agility
@@ -211,8 +217,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Performance-based culture with measurable objectives
         <br/>
         • Open communication and continuous feedback
-        <br/>
-        
+        """
+
+        decision_making_text = """
         <b>Decision-Making Process:</b>
         <br/>
         • Daily operations managed by department managers
@@ -224,8 +231,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Quarterly business reviews with stakeholders
         <br/>
         • Annual strategic planning and budget cycles
-        <br/>
-        
+        """
+
+        performance_mgmt_text = """
         <b>Performance Management:</b>
         <br/>
         • Clear job descriptions and performance expectations
@@ -238,21 +246,25 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         <br/>
         • Recognition and advancement programs
         """
-        
+
         self.add_body_text(governance_text)
+        self.add_body_text(management_philosophy_text)
+        self.add_body_text(decision_making_text)
+        self.add_body_text(performance_mgmt_text)
         self.add_spacer()
     
     def _add_advisory_board(self):
         """Add advisory board section"""
         self.add_heading1("Advisory Board & Industry Experts")
         
-        advisory_text = """
-        FluxGen Industries is establishing an Advisory Board comprising industry experts, successful entrepreneurs, 
+        advisory_intro_text = """
+        FluxGen Industries is establishing an Advisory Board comprising industry experts, successful entrepreneurs,
         and technical specialists to provide strategic guidance and market insights.
-        
+
         <b>Advisory Board Structure:</b>
-        <br/>
-        
+        """
+
+        industry_expert_text = """
         <b>Industry Expert - Welding Technology:</b>
         <br/>
         • Background: 25+ years in welding consumables industry
@@ -260,8 +272,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Expertise: Product development, technical standards, customer applications
         <br/>
         • Value: Market insights, product strategy, technical validation
-        <br/>
-        
+        """
+
+        business_advisor_text = """
         <b>Business Advisor - Manufacturing:</b>
         <br/>
         • Background: Former manufacturing executive with scaling experience
@@ -269,8 +282,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Expertise: Operations optimization, lean manufacturing, quality systems
         <br/>
         • Value: Operational strategy, process improvement, cost optimization
-        <br/>
-        
+        """
+
+        financial_advisor_text = """
         <b>Financial Advisor - Industrial Investments:</b>
         <br/>
         • Background: Investment banking and industrial finance experience
@@ -278,8 +292,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Expertise: Capital markets, mergers & acquisitions, financial strategy
         <br/>
         • Value: Financial planning, funding strategy, exit planning
-        <br/>
-        
+        """
+
+        govt_advisor_text = """
         <b>Government Relations Advisor:</b>
         <br/>
         • Background: Former government official with economic development experience
@@ -287,8 +302,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Expertise: Regulatory affairs, government programs, public-private partnerships
         <br/>
         • Value: Regulatory guidance, funding programs, government relations
-        <br/>
-        
+        """
+
+        customer_panel_text = """
         <b>Customer Advisory Panel:</b>
         <br/>
         FluxGen will also establish a Customer Advisory Panel with representatives from key customer segments:
@@ -300,12 +316,17 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Equipment manufacturers
         <br/>
         • Government and municipal users
-        
+
         <br/>
         This panel will provide ongoing feedback on product development, market trends, and service requirements.
         """
-        
-        self.add_body_text(advisory_text)
+
+        self.add_body_text(advisory_intro_text)
+        self.add_body_text(industry_expert_text)
+        self.add_body_text(business_advisor_text)
+        self.add_body_text(financial_advisor_text)
+        self.add_body_text(govt_advisor_text)
+        self.add_body_text(customer_panel_text)
         
         # Advisory meeting schedule
         advisory_schedule_data = [
@@ -339,7 +360,7 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         
         self.add_table(hiring_data, [1.2, 1.1, 1.3, 1.0, 1.4], title="Staffing Plan by Phase")
         
-        hr_strategy_text = """
+        recruitment_text = """
         <b>Recruitment Strategy:</b>
         <br/>
         • Target experienced professionals from oil & gas, manufacturing, and welding industries
@@ -351,8 +372,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Comprehensive benefits including health, dental, retirement, and professional development
         <br/>
         • Employee stock option plan for key contributors
-        <br/>
-        
+        """
+
+        training_text = """
         <b>Training & Development:</b>
         <br/>
         • Comprehensive orientation program for safety and quality procedures
@@ -364,8 +386,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Professional development and certification support
         <br/>
         • Leadership development for high-potential employees
-        <br/>
-        
+        """
+
+        culture_text = """
         <b>Workplace Culture:</b>
         <br/>
         • Safety-first culture with zero-incident goal
@@ -377,8 +400,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Recognition and reward programs
         <br/>
         • Work-life balance and flexible scheduling where possible
-        <br/>
-        
+        """
+
+        compensation_text = """
         <b>Compensation Philosophy:</b>
         <br/>
         • Market competitive base salaries
@@ -390,8 +414,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Equity participation for key employees
         <br/>
         • Professional development investment
-        <br/>
-        
+        """
+
+        employee_relations_text = """
         <b>Employee Relations:</b>
         <br/>
         • Regular employee surveys and feedback sessions
@@ -403,8 +428,9 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         • Wellness programs and employee assistance
         <br/>
         • Community involvement and volunteer opportunities
-        <br/>
-        
+        """
+
+        skills_dev_text = """
         <b>Skills Development:</b>
         <br/>
         FluxGen is committed to developing local talent through:
@@ -419,8 +445,13 @@ class TeamBiosGenerator(BaseDocumentGenerator):
         <br/>
         • Mentorship programs pairing senior and junior staff
         """
-        
-        self.add_body_text(hr_strategy_text)
+
+        self.add_body_text(recruitment_text)
+        self.add_body_text(training_text)
+        self.add_body_text(culture_text)
+        self.add_body_text(compensation_text)
+        self.add_body_text(employee_relations_text)
+        self.add_body_text(skills_dev_text)
         self.add_spacer()
     
     def generate(self) -> Path:

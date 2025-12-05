@@ -5,12 +5,14 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.colors import HexColor
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, 
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
     PageBreak, Image, KeepTogether
 )
 from reportlab.lib.units import inch, mm
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT, TA_JUSTIFY
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
@@ -18,17 +20,52 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+# Register Montserrat fonts
+_fonts_dir = Path(__file__).parent.parent / 'static' / 'fonts'
+_fonts_registered = False
+
+def _register_fonts():
+    """Register custom fonts with ReportLab (called once)"""
+    global _fonts_registered
+    if _fonts_registered:
+        return
+
+    try:
+        montserrat_bold = _fonts_dir / 'Montserrat-Bold.ttf'
+        montserrat_regular = _fonts_dir / 'Montserrat-Regular.ttf'
+        montserrat_semibold = _fonts_dir / 'Montserrat-SemiBold.ttf'
+
+        if montserrat_bold.exists():
+            pdfmetrics.registerFont(TTFont('Montserrat-Bold', str(montserrat_bold)))
+        if montserrat_regular.exists():
+            pdfmetrics.registerFont(TTFont('Montserrat', str(montserrat_regular)))
+        if montserrat_semibold.exists():
+            pdfmetrics.registerFont(TTFont('Montserrat-SemiBold', str(montserrat_semibold)))
+
+        _fonts_registered = True
+        logger.info("Montserrat fonts registered successfully")
+    except Exception as e:
+        logger.warning(f"Could not register Montserrat fonts: {e}. Falling back to Helvetica.")
+
+# Register fonts on module load
+_register_fonts()
+
 
 class BaseDocumentGenerator:
     """Base class for all FluxGen document generators with proper text wrapping"""
-    
-    # FluxGen brand colors
-    NAVY = HexColor('#1F3A4A')
-    ORANGE = HexColor('#C87533') 
-    GRAY = HexColor('#6B7280')
-    LIGHT_GRAY = HexColor('#F3F4F6')
+
+    # FluxGen brand colors (from official branding guide)
+    PRIMARY = HexColor('#2C3E50')      # Dark blue-gray (primary brand color)
+    COPPER = HexColor('#B87333')       # Copper/Bronze (accent color)
+    SILVER = HexColor('#C0C0C0')       # Silver (text color)
+    LIGHT_GRAY = HexColor('#F3F4F6')   # Light gray (backgrounds)
     WHITE = HexColor('#FFFFFF')
     BLACK = HexColor('#000000')
+
+    # Legacy aliases for backward compatibility
+    NAVY = PRIMARY
+    ORANGE = COPPER
+    GRAY = SILVER
     
     def __init__(self, database_manager, output_dir: Path):
         """Initialize the document generator"""
@@ -46,69 +83,88 @@ class BaseDocumentGenerator:
         # Company data (loaded once)
         self.company_info = self.db.get_company_info()
         
+        # Logo paths (optimized versions for PDF use)
+        _images_dir = Path(__file__).parent.parent / 'static' / 'images'
+        _optimized_dir = _images_dir / 'optimized'
+
+        # Optimized logos (preferred)
+        self.logo_header_path = _optimized_dir / 'fluxgen-logo-full-header.png'      # 600x200 - for headers
+        self.logo_cover_path = _optimized_dir / 'fluxgen-square-logo-cover.png'      # 400x400 - for cover pages
+        self.logo_footer_path = _optimized_dir / 'fluxgen-logo-monogram-footer.png'  # 200x200 - for footers
+
+        # Fallback to original logos if optimized not found
+        self.logo_full_path = _images_dir / 'fluxgen-logo-full.png'
+        self.logo_square_path = _images_dir / 'fluxgen-square-logo.png'
+        self.logo_monogram_path = _images_dir / 'fluxgen-logo-monogram.png'
+        
     def _setup_custom_styles(self):
         """Set up custom paragraph styles for FluxGen documents"""
-        
+
+        # Determine font availability (Montserrat preferred, Helvetica fallback)
+        bold_font = 'Montserrat-Bold' if _fonts_registered else 'Helvetica-Bold'
+        regular_font = 'Montserrat' if _fonts_registered else 'Helvetica'
+        semibold_font = 'Montserrat-SemiBold' if _fonts_registered else 'Helvetica-Bold'
+
         # Title style
         self.styles.add(ParagraphStyle(
             'FluxGenTitle',
             parent=self.styles['Title'],
             fontSize=24,
-            textColor=self.NAVY,
+            textColor=self.PRIMARY,
             spaceAfter=20,
             spaceBefore=10,
             alignment=TA_CENTER,
-            fontName='Helvetica-Bold'
+            fontName=bold_font
         ))
-        
+
         # Heading 1 style
         self.styles.add(ParagraphStyle(
             'FluxGenHeading1',
             parent=self.styles['Heading1'],
             fontSize=16,
-            textColor=self.NAVY,
+            textColor=self.PRIMARY,
             spaceAfter=12,
             spaceBefore=16,
-            fontName='Helvetica-Bold'
+            fontName=bold_font
         ))
-        
+
         # Heading 2 style
         self.styles.add(ParagraphStyle(
             'FluxGenHeading2',
             parent=self.styles['Heading2'],
             fontSize=14,
-            textColor=self.NAVY,
+            textColor=self.PRIMARY,
             spaceAfter=10,
             spaceBefore=14,
-            fontName='Helvetica-Bold'
+            fontName=semibold_font
         ))
-        
+
         # Body text style
         self.styles.add(ParagraphStyle(
             'FluxGenBody',
             parent=self.styles['Normal'],
             fontSize=10,
-            leading=12,
+            leading=14,
             textColor=self.BLACK,
             spaceAfter=6,
             spaceBefore=0,
             alignment=TA_JUSTIFY,
-            fontName='Helvetica'
+            fontName=regular_font
         ))
-        
+
         # Table cell style for text wrapping
         self.styles.add(ParagraphStyle(
             'FluxGenTableCell',
             parent=self.styles['Normal'],
             fontSize=9,
-            leading=11,
+            leading=12,
             textColor=self.BLACK,
             spaceAfter=0,
             spaceBefore=0,
             alignment=TA_LEFT,
-            fontName='Helvetica'
+            fontName=regular_font
         ))
-        
+
         # Table header style
         self.styles.add(ParagraphStyle(
             'FluxGenTableHeader',
@@ -119,7 +175,7 @@ class BaseDocumentGenerator:
             spaceAfter=0,
             spaceBefore=0,
             alignment=TA_CENTER,
-            fontName='Helvetica-Bold'
+            fontName=bold_font
         ))
         
         # Small text style
@@ -128,10 +184,10 @@ class BaseDocumentGenerator:
             parent=self.styles['Normal'],
             fontSize=8,
             leading=10,
-            textColor=self.GRAY,
+            textColor=self.SILVER,
             spaceAfter=3,
             spaceBefore=0,
-            fontName='Helvetica'
+            fontName=regular_font
         ))
     
     def create_wrapped_table_cell(self, text: str, style_name: str = 'FluxGenTableCell') -> Paragraph:
@@ -219,8 +275,13 @@ class BaseDocumentGenerator:
                     wrapped_row.append(self.create_wrapped_table_cell(cell))
             wrapped_data.append(wrapped_row)
         
-        # Create table
-        table = Table(wrapped_data, colWidths=[w*inch for w in col_widths])
+        # Create table with page splitting enabled
+        table = Table(
+            wrapped_data, 
+            colWidths=[w*inch for w in col_widths],
+            repeatRows=1 if has_header else 0,
+            splitByRow=True  # Enable splitting across pages
+        )
         
         # Base table style
         table_style = [
@@ -273,27 +334,216 @@ class BaseDocumentGenerator:
             self.story.append(table)
             self.story.append(Spacer(1, 0.2*inch))
     
-    def add_company_header(self):
-        """Add standard company header to document"""
+    def _create_logo_image(self, logo_type: str = 'header', width: float = None, max_height: float = None) -> Optional[Image]:
+        """
+        Create a ReportLab Image object for the logo with proper aspect ratio preservation.
+
+        Args:
+            logo_type: 'header' (horizontal), 'cover' (square with text), 'footer' (monogram only)
+            width: Target width in inches (may be reduced to fit max_height while preserving aspect ratio)
+            max_height: Maximum height in inches (logo will scale to fit while preserving aspect ratio)
+
+        Returns:
+            Image object or None if logo file not found
+        """
+        # Logo type configurations: (preferred_path, fallback_path, target_width, max_height)
+        # The logo will be scaled to fit BOTH constraints while PRESERVING ASPECT RATIO
+        # - For wide logos (header): max_height is the binding constraint
+        # - For square logos (footer/cover): either can be binding
+        logo_configs = {
+            'header': (self.logo_header_path, self.logo_full_path, 3.5, 0.8),      # Horizontal banner
+            'cover': (self.logo_cover_path, self.logo_square_path, 2.5, 2.5),      # Square for cover pages
+            'footer': (self.logo_footer_path, self.logo_monogram_path, 0.4, 0.4),  # Monogram (square) for footer
+            # Legacy support
+            'full': (self.logo_header_path, self.logo_full_path, 3.5, 0.8),
+            'monogram': (self.logo_footer_path, self.logo_monogram_path, 0.4, 0.4),
+        }
+
+        config = logo_configs.get(logo_type, logo_configs['header'])
+        preferred_path, fallback_path, default_width, default_max_height = config
+
+        # Use provided values or defaults
+        target_width = width or default_width
+        max_height = max_height or default_max_height
+
+        # Try optimized logo first, then fallback
+        logo_path = preferred_path if preferred_path.exists() else fallback_path
+
+        if not logo_path.exists():
+            logger.warning(f"Logo not found at {logo_path}")
+            return None
+
+        try:
+            # Get actual image dimensions to calculate aspect ratio
+            from PIL import Image as PILImage
+            with PILImage.open(logo_path) as img:
+                img_width, img_height = img.size
+            aspect_ratio = img_width / img_height
+
+            # Calculate dimensions that fit BOTH constraints while preserving aspect ratio
+            # Option 1: Use target_width and calculate height
+            calc_height_from_width = target_width / aspect_ratio
+            # Option 2: Use max_height and calculate width
+            calc_width_from_height = max_height * aspect_ratio
+
+            # Choose the option that fits both constraints
+            if calc_height_from_width <= max_height:
+                # Width-constrained: use target_width, height will fit
+                final_width = target_width
+                final_height = calc_height_from_width
+            else:
+                # Height-constrained: use max_height, reduce width to maintain ratio
+                final_width = calc_width_from_height
+                final_height = max_height
+
+            # Create image with calculated dimensions (preserving aspect ratio)
+            logo = Image(str(logo_path), width=final_width*inch, height=final_height*inch)
+            return logo
+
+        except ImportError:
+            # PIL not available, fall back to ReportLab's auto-scaling (width-only)
+            logger.warning("PIL not available for aspect ratio calculation, using width-only scaling")
+            logo = Image(str(logo_path), width=target_width*inch)
+            return logo
+        except Exception as e:
+            logger.error(f"Error loading logo: {str(e)}")
+            return None
+    
+    def add_cover_page_logo(self, width: float = 3.0):
+        """
+        Add centered square logo to cover page
+
+        Args:
+            width: Logo width in inches (default 3.0 for cover pages)
+        """
+        logo = self._create_logo_image('cover', width=width, max_height=3.0)
+        if logo:
+            logo.hAlign = 'CENTER'
+            self.story.append(logo)
+            self.story.append(Spacer(1, 0.5*inch))
+    
+    def add_company_header(self, include_logo: bool = True, logo_width: float = 2.5):
+        """Add standard company header to document with optional logo
+
+        Args:
+            include_logo: Whether to include logo in header
+            logo_width: Width of logo in header (in inches)
+        """
+        # Determine fonts
+        bold_font = 'Montserrat-Bold' if _fonts_registered else 'Helvetica-Bold'
+        regular_font = 'Montserrat' if _fonts_registered else 'Helvetica'
+
         if self.company_info:
+            if include_logo:
+                # Header with horizontal logo on left, company info on right
+                logo = self._create_logo_image('header', width=logo_width)
+
+                if logo:
+                    # Create company info as Paragraphs for better formatting
+                    company_name = Paragraph(
+                        self.company_info.get('legal_name', 'FluxGen Industries Ltd.'),
+                        ParagraphStyle(
+                            'HeaderName',
+                            parent=self.styles['Normal'],
+                            fontSize=14,
+                            textColor=self.PRIMARY,
+                            fontName=bold_font,
+                            alignment=TA_LEFT
+                        )
+                    )
+
+                    tagline = Paragraph(
+                        self.company_info.get('tagline', 'Forging Tomorrow\'s Welds'),
+                        ParagraphStyle(
+                            'HeaderTagline',
+                            parent=self.styles['Normal'],
+                            fontSize=11,
+                            textColor=self.COPPER,
+                            fontName=regular_font,
+                            alignment=TA_LEFT
+                        )
+                    )
+
+                    location = Paragraph(
+                        f"{self.company_info.get('location', 'Airdrie')}, {self.company_info.get('province', 'Alberta')}, {self.company_info.get('country', 'Canada')}",
+                        ParagraphStyle(
+                            'HeaderLocation',
+                            parent=self.styles['Normal'],
+                            fontSize=9,
+                            textColor=self.BLACK,
+                            fontName=regular_font,
+                            alignment=TA_LEFT
+                        )
+                    )
+
+                    website = Paragraph(
+                        self.company_info.get('website', 'www.fluxgen.ca'),
+                        ParagraphStyle(
+                            'HeaderWebsite',
+                            parent=self.styles['Normal'],
+                            fontSize=9,
+                            textColor=self.BLACK,
+                            fontName=regular_font,
+                            alignment=TA_LEFT
+                        )
+                    )
+
+                    # LINE 470-491: Header layout - Logo LEFT, Text RIGHT
+                    # Create nested table for company info
+                    info_data = [[company_name], [tagline], [location], [website]]
+                    info_table = Table(info_data, colWidths=[4.0*inch], splitByRow=True)
+                    info_table.setStyle(TableStyle([
+                        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                        ('LEFTPADDING', (0, 0), (-1, -1), 15),
+                        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                        ('TOPPADDING', (0, 0), (-1, -1), 2),
+                        ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
+                    ]))
+
+                    # Main header table: Logo (left) | Company Info (right)
+                    # Logo is aspect-ratio preserved, so allocate space based on max logo width + padding
+                    # Header logo (512x200) at 0.8" height = ~2.05" width, give it 2.5" column
+                    header_data = [[logo, info_table]]
+                    header_table = Table(header_data, colWidths=[2.5*inch, 4.0*inch], splitByRow=True)
+                    header_table.setStyle(TableStyle([
+                        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+                        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                        ('TOPPADDING', (0, 0), (-1, -1), 0),
+                        ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+                    ]))
+
+                    self.story.append(header_table)
+                    self.story.append(Spacer(1, 0.3*inch))
+
+                    # Add horizontal line separator with brand color
+                    line_table = Table([['']], colWidths=[6.5*inch], splitByRow=True)
+                    line_table.setStyle(TableStyle([
+                        ('LINEABOVE', (0, 0), (-1, 0), 2, self.PRIMARY),
+                    ]))
+                    self.story.append(line_table)
+                    self.story.append(Spacer(1, 0.2*inch))
+                    return
+
+            # Fallback: header without logo (centered text)
             company_data = [
                 [self.company_info.get('legal_name', 'FluxGen Industries Ltd.')],
                 [self.company_info.get('tagline', 'Forging Tomorrow\'s Welds')],
                 [f"{self.company_info.get('location', 'Airdrie')}, {self.company_info.get('province', 'Alberta')}, {self.company_info.get('country', 'Canada')}"],
                 [self.company_info.get('website', 'www.fluxgen.ca')]
             ]
-            
-            header_table = Table(company_data, colWidths=[7*inch])
+
+            header_table = Table(company_data, colWidths=[6.5*inch], splitByRow=True)
             header_style = TableStyle([
                 ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                ('FONTNAME', (0, 0), (0, 0), 'Helvetica-Bold'),
+                ('FONTNAME', (0, 0), (0, 0), bold_font),
                 ('FONTSIZE', (0, 0), (0, 0), 16),
-                ('FONTNAME', (0, 1), (0, 1), 'Helvetica'),
+                ('FONTNAME', (0, 1), (0, 1), regular_font),
                 ('FONTSIZE', (0, 1), (0, 1), 12),
-                ('FONTNAME', (0, 2), (-1, -1), 'Helvetica'),
+                ('FONTNAME', (0, 2), (-1, -1), regular_font),
                 ('FONTSIZE', (0, 2), (-1, -1), 10),
-                ('TEXTCOLOR', (0, 0), (0, 0), self.NAVY),
-                ('TEXTCOLOR', (0, 1), (0, 1), self.ORANGE),
+                ('TEXTCOLOR', (0, 0), (0, 0), self.PRIMARY),
+                ('TEXTCOLOR', (0, 1), (0, 1), self.COPPER),
                 ('SPACEAFTER', (0, 0), (-1, -1), 6),
             ])
             header_table.setStyle(header_style)
@@ -301,11 +551,69 @@ class BaseDocumentGenerator:
             self.story.append(header_table)
             self.story.append(Spacer(1, 0.5*inch))
     
-    def add_footer_info(self):
-        """Add standard footer information"""
-        footer_text = f"Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')} | FluxGen Industries Ltd."
+    def add_footer_info(self, include_logo: bool = True):
+        """Add standard footer bar with PRIMARY background, logo LEFT, text RIGHT
+
+        Args:
+            include_logo: Whether to include the monogram logo in footer
+
+        LINE 532-580: Footer layout configuration
+        """
         self.story.append(Spacer(1, 0.3*inch))
-        self.story.append(Paragraph(footer_text, self.styles['FluxGenSmall']))
+
+        footer_text = f"Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')} | FluxGen Industries Ltd."
+
+        # Determine font for footer text
+        regular_font = 'Montserrat' if _fonts_registered else 'Helvetica'
+
+        if include_logo:
+            logo = self._create_logo_image('footer', width=0.45, max_height=0.45)
+            if logo:
+                # Footer text style - white text for dark background
+                footer_style = ParagraphStyle(
+                    'FooterText',
+                    parent=self.styles['Normal'],
+                    fontSize=8,
+                    leading=10,
+                    textColor=self.SILVER,
+                    fontName=regular_font,
+                    alignment=TA_LEFT
+                )
+                footer_para = Paragraph(footer_text, footer_style)
+
+                # LINE 560-575: Footer bar layout - Logo (left) | Text (right)
+                # Adjust column widths here (logo_col + text_col = 6.5 inches total)
+                footer_data = [[logo, footer_para]]
+                footer_table = Table(footer_data, colWidths=[0.7*inch, 5.8*inch], splitByRow=True)
+                footer_table.setStyle(TableStyle([
+                    # Dark PRIMARY background
+                    ('BACKGROUND', (0, 0), (-1, -1), self.PRIMARY),
+                    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                    ('LEFTPADDING', (0, 0), (0, 0), 10),   # Logo padding
+                    ('LEFTPADDING', (1, 0), (1, 0), 10),   # Text padding
+                    ('RIGHTPADDING', (0, 0), (-1, -1), 10),
+                    ('TOPPADDING', (0, 0), (-1, -1), 8),
+                    ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+                ]))
+                self.story.append(footer_table)
+                return
+
+        # Fallback: footer without logo (still with dark background)
+        footer_style = ParagraphStyle(
+            'FooterTextOnly',
+            parent=self.styles['Normal'],
+            fontSize=8,
+            textColor=self.SILVER,
+            fontName=regular_font,
+        )
+        fallback_table = Table([[Paragraph(footer_text, footer_style)]], colWidths=[6.5*inch])
+        fallback_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, -1), self.PRIMARY),
+            ('LEFTPADDING', (0, 0), (-1, -1), 10),
+            ('TOPPADDING', (0, 0), (-1, -1), 8),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+        ]))
+        self.story.append(fallback_table)
     
     def generate_document(self, filename: str, title: str = None) -> Path:
         """

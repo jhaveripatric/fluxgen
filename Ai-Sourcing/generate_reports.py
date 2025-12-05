@@ -16,11 +16,23 @@ from pathlib import Path
 class ReportGenerator:
     """Generate reports and export supplier data"""
 
-    def __init__(self, db_path: str = "/Users/pratikjhaveri/FluxGen/data/fluxgen.db"):
+    def __init__(self, db_path: str = None):
+        # Use provided path or default from config
+        import os as os_module
+        if db_path is None:
+            try:
+                from config import DATABASE_PATH, REPORTS_DIR
+                db_path = DATABASE_PATH
+                self.output_dir = REPORTS_DIR
+            except ImportError:
+                db_path = os_module.path.join(os_module.path.dirname(__file__), '..', 'data', 'fluxgen.db')
+                self.output_dir = Path(os_module.path.dirname(__file__)).parent / 'reports'
+        else:
+            self.output_dir = Path(db_path).parent.parent / 'reports'
+
         self.db_path = db_path
         self.conn = None
         self.cursor = None
-        self.output_dir = Path("/Users/pratikjhaveri/FluxGen/reports")
         self.output_dir.mkdir(exist_ok=True)
 
     def connect(self):

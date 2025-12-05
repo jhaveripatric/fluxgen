@@ -1,201 +1,218 @@
 # FluxGen AI Supplier Sourcing System
 
-Automated supplier discovery and ranking system powered by Claude AI with real web search capabilities.
+Automated supplier discovery, contact management, pricing tracking, and outreach system powered by Claude AI.
 
-## 🚀 Quick Start
-
-### 1. Install Dependencies
+## Quick Start
 
 ```bash
-cd /Users/pratikjhaveri/FluxGen/Ai-Sourcing
-pip3 install -r requirements.txt
+cd /path/to/Ai-Sourcing
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Initialize database schema
+python cli.py init
+
+# Check system status
+python cli.py status
+
+# Run first search (dry-run)
+python cli.py search --dry-run
 ```
 
-### 2. Configure API Key
+## Configuration
 
-1. Get your Anthropic API key from: https://console.anthropic.com/
-2. Edit the `.env` file:
-   ```bash
-   nano .env
-   ```
-3. Add your API key:
-   ```
-   ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
-   ```
-4. Save and exit (Ctrl+X, then Y, then Enter)
-
-### 3. Test Your Setup
+Copy `.env.template` to `.env` and add your API key:
 
 ```bash
-python3 test_setup.py
+ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
 ```
 
-This will verify:
-- ✅ API key is configured
-- ✅ Dependencies are installed
-- ✅ Database is accessible
-- ✅ API connection works
+## Unified CLI
 
-### 4. Run Your First Search
+All operations through single entry point:
 
 ```bash
-# Search for one item
-python3 daily_supplier_search.py --batch-size 1
+# Search for suppliers
+python cli.py search --batch-size 5
+python cli.py search --dry-run
 
-# Or test with dry-run mode first
-python3 daily_supplier_search.py --batch-size 1 --dry-run
+# Score suppliers
+python cli.py score --summary
+python cli.py score --supplier-id 1
+
+# Manage contacts
+python cli.py contacts --stats
+python cli.py contacts --status Prospect --dry-run
+
+# Track pricing
+python cli.py pricing market
+python cli.py pricing --compare --product "Silica Sand"
+python cli.py pricing --alerts
+
+# Manage outreach
+python cli.py outreach --templates
+python cli.py outreach --preview --template direct_fluxgen
+python cli.py outreach --stats
+
+# Dashboard
+python cli.py dashboard
+python cli.py dashboard --full
+python cli.py dashboard --export report.json
+
+# Reports
+python cli.py report --csv
+python cli.py report --summary
 ```
 
-## 📋 Usage
+## Modules
 
-### Search Commands
+### 1. Supplier Search (`daily_supplier_search.py`)
+- Automated supplier discovery using Claude AI with web search
+- Processes items from research queue
+- Extracts company info (name, website, location, contacts)
+- Saves to SQLite database
 
 ```bash
-# Process 5 items from the research queue
-python3 daily_supplier_search.py --batch-size 5
-
-# Preview what will be searched (no API calls)
-python3 daily_supplier_search.py --batch-size 5 --dry-run
-
-# Search for specific item
-python3 daily_supplier_search.py --item "Solar Panel"
+python daily_supplier_search.py --batch-size 5
+python daily_supplier_search.py --dry-run
 ```
 
-### Score Suppliers
+### 2. Supplier Scoring (`supplier_scorer.py`)
+- Multi-factor scoring (0-100 scale)
+- Weights: location, website quality, certifications, contact info
+- Grade assignment (A+ to F)
 
 ```bash
-# Score a specific supplier
-python3 supplier_scorer.py --supplier-id 1
-
-# Score all unscored suppliers
-python3 supplier_scorer.py --all
+python supplier_scorer.py --supplier-id 1
+python supplier_scorer.py --summary
 ```
 
-### Generate Reports
+### 3. Contact Manager (`contact_manager.py`)
+- Extract contacts from supplier websites
+- AI-powered contact extraction
+- Store emails, phones, LinkedIn URLs
+- Track verification status
 
 ```bash
-# Generate weekly supplier report
-python3 generate_reports.py
-
-# Generate custom date range report
-python3 generate_reports.py --days 14
+python contact_manager.py --stats
+python contact_manager.py --supplier-id 1
+python contact_manager.py --status Prospect --batch-size 10
 ```
 
-## 🤖 How It Works
-
-1. **Daily Search (`daily_supplier_search.py`)**
-   - Reads items from `research_queue` table
-   - Uses Claude AI to search the web for suppliers
-   - Extracts company information (name, website, location)
-   - Saves suppliers to the `suppliers` table
-   - Logs all searches in `supplier_search_history`
-
-2. **Supplier Scoring (`supplier_scorer.py`)**
-   - Uses AI to evaluate supplier quality
-   - Scores based on: reliability, capabilities, pricing
-   - Updates supplier records with scores and analysis
-
-3. **Report Generation (`generate_reports.py`)**
-   - Creates summaries of newly found suppliers
-   - Groups by item type and priority
-   - Exports to CSV/PDF for review
-
-## 🔧 Configuration
-
-### Environment Variables (.env)
+### 4. Pricing Tracker (`pricing_tracker.py`)
+- Log quotes from suppliers
+- Calculate market price ranges (min/avg/max)
+- Price change alerts
+- Supplier comparison
 
 ```bash
-# Required
-ANTHROPIC_API_KEY=sk-ant-api03-...
-
-# Optional
-DATABASE_PATH=/Users/pratikjhaveri/FluxGen/data/fluxgen.db
+python pricing_tracker.py market
+python pricing_tracker.py compare "Silica Sand"
+python pricing_tracker.py alerts --threshold 10
+python pricing_tracker.py add --supplier-id 1 --product "Silica" --price 150
 ```
 
-### Search Parameters
-
-Edit in `daily_supplier_search.py`:
-- `max_results`: Maximum search results per query (default: 10)
-- `batch_size`: Items to process per run (default: 5)
-- `research_frequency_days`: Days between searches (default: 30)
-
-## 📊 Database Tables
-
-The system uses three main tables:
-
-1. **research_queue**: Items that need supplier research
-2. **suppliers**: All found suppliers
-3. **supplier_search_history**: Log of all searches performed
-
-## ⚙️ Automation (Optional)
-
-To run automatically every day:
+### 5. Outreach Engine (`outreach_engine.py`)
+- Email templates for different personas
+- AI-generated custom emails
+- Track outreach status
+- Follow-up management
 
 ```bash
-crontab -e
+python outreach_engine.py templates
+python outreach_engine.py preview direct_fluxgen --supplier-id 1
+python outreach_engine.py stats
+python outreach_engine.py followups
 ```
 
-Add these lines:
+### 6. Dashboard (`dashboard.py`)
+- Supplier database overview
+- Pricing analytics
+- Outreach statistics
+- Geographic distribution
 
 ```bash
-# Run supplier search daily at 2 AM
-0 2 * * * cd /Users/pratikjhaveri/FluxGen/Ai-Sourcing && /usr/bin/python3 daily_supplier_search.py
-
-# Generate reports daily at 8 AM
-0 8 * * * cd /Users/pratikjhaveri/FluxGen/Ai-Sourcing && /usr/bin/python3 generate_reports.py
+python dashboard.py --summary
+python dashboard.py --full
+python dashboard.py --export data.json
 ```
 
-## 🐛 Troubleshooting
+## Database Schema
 
-### "ANTHROPIC_API_KEY not found"
-- Make sure `.env` file exists in the Ai-Sourcing directory
-- Check that the API key is set correctly in `.env`
-- Key should start with `sk-ant-`
+Main tables:
+- `suppliers` - Supplier companies
+- `supplier_contacts` - Contact persons
+- `price_quotes` - Pricing quotes
+- `outreach_log` - Outreach history
+- `trade_shows` - Industry events
+- `research_queue` - Items to research
+- `supplier_search_history` - Search logs
 
-### "supplier_type CHECK constraint failed"
-- This has been fixed in the latest version
-- Valid values: 'Local', 'Regional', 'Import', 'Distributor'
-
-### "Database not found"
-- Verify database path in script
-- Check that `/Users/pratikjhaveri/FluxGen/data/fluxgen.db` exists
-
-### Search returns no results
-- Check your API key is valid
-- Verify internet connection
-- Try with `--dry-run` to see what would be searched
-
-## 📝 Example Output
-
-```
-################################################################################
-# FluxGen Automated Supplier Search
-# 2025-11-26 10:00:00
-################################################################################
-
-📋 Found 3 items to research
-
-================================================================================
-🔎 SEARCHING: Rotary Dryer/Calciner (Primary) (equipment)
-   Priority: 10 | Target: 10 suppliers
-   Already found: 0 suppliers
-================================================================================
-
-📝 Query: Rotary Dryer/Calciner (Primary) suppliers manufacturers industrial
-🔍 Searching: Rotary Dryer/Calciner (Primary) suppliers manufacturers industrial
-   ✅ Found 8 results
-   ✅ Saved supplier: FEECO International (ID: 45)
-   ✅ Saved supplier: Metso Outotec (ID: 46)
-   ...
-
-✅ Completed: Found 8 results, saved 7 new suppliers
+Initialize/update schema:
+```bash
+python db_utils.py
+# or
+python cli.py init
 ```
 
-## 📞 Support
+## Personas
 
-For issues or questions, check the database logs:
+Different identities for market research:
+
+| Persona | Use Case |
+|---------|----------|
+| `fluxgen` | Direct supplier inquiry |
+| `fab_shop` | Fabrication shop perspective |
+| `distributor` | Distribution partnership |
+| `researcher` | Market research |
+
+## Templates
+
+Built-in email templates:
+- `fab_shop_inquiry` - Fab shop product inquiry
+- `distributor_inquiry` - Distribution partnership
+- `direct_fluxgen` - Direct FluxGen inquiry
+- `follow_up` - Follow-up email
+- `quote_request` - Formal RFQ
+
+## Testing
 
 ```bash
-sqlite3 /Users/pratikjhaveri/FluxGen/data/fluxgen.db
-> SELECT * FROM supplier_search_history ORDER BY search_date DESC LIMIT 5;
+cd tests
+python test_modules.py
+```
+
+## File Structure
+
+```
+Ai-Sourcing/
+├── cli.py                 # Unified CLI entry point
+├── config.py              # Configuration and constants
+├── db_utils.py            # Database utilities
+├── schema_update.sql      # Schema definitions
+├── daily_supplier_search.py
+├── supplier_scorer.py
+├── contact_manager.py
+├── pricing_tracker.py
+├── outreach_engine.py
+├── dashboard.py
+├── generate_reports.py
+├── test_setup.py
+├── requirements.txt
+├── .env                   # API keys (not in git)
+├── .env.template
+├── tests/
+│   └── test_modules.py
+└── README.md
+```
+
+## Dry Run Mode
+
+All modules support `--dry-run` flag to preview actions without database changes:
+
+```bash
+python cli.py search --dry-run
+python cli.py contacts --dry-run
+python pricing_tracker.py add --supplier-id 1 --product X --price 100 --dry-run
 ```

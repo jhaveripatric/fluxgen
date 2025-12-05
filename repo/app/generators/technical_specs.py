@@ -252,31 +252,39 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Quality Management System")
         
-        qms_text = """
+        qms_intro_text = """
         <b>ISO 9001:2015 Quality Management System:</b>
-        FluxGen implements a comprehensive quality management system based on ISO 9001:2015 principles, 
+        FluxGen implements a comprehensive quality management system based on ISO 9001:2015 principles,
         ensuring consistent product quality and continuous improvement.
-        <br/>
+        """
+
+        document_control_text = """
         <b>Document Control:</b><br/>
         • Standard Operating Procedures (SOPs) for all processes<br/>
         • Work instructions with revision control<br/>
         • Quality forms and checklists<br/>
         • Training records and competency assessments<br/>
-        • Change control procedures for process modifications<br/>
-        
+        • Change control procedures for process modifications
+        """
+
+        spc_text = """
         <b>Statistical Process Control:</b><br/>
         • Control charts for key process parameters<br/>
         • Capability studies for critical characteristics<br/>
         • Trend analysis and corrective action procedures<br/>
-        • Process improvement initiatives based on data analysis<br/>
-        
+        • Process improvement initiatives based on data analysis
+        """
+
+        supplier_quality_text = """
         <b>Supplier Quality:</b><br/>
         • Approved supplier list with qualification criteria<br/>
         • Incoming material inspection and testing<br/>
         • Supplier audits and performance monitoring<br/>
         • Certificate of analysis verification<br/>
-        • Non-conforming material procedures<br/>
-        
+        • Non-conforming material procedures
+        """
+
+        customer_quality_text = """
         <b>Customer Quality:</b><br/>
         • Customer specification review and approval<br/>
         • Custom product qualification procedures<br/>
@@ -284,8 +292,12 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         • Performance monitoring and reporting<br/>
         • Continuous improvement based on customer input
         """
-        
-        self.add_body_text(qms_text)
+
+        self.add_body_text(qms_intro_text)
+        self.add_body_text(document_control_text)
+        self.add_body_text(spc_text)
+        self.add_body_text(supplier_quality_text)
+        self.add_body_text(customer_quality_text)
         
         # Traceability system
         traceability_data = [
@@ -402,41 +414,56 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Regulatory Compliance Framework")
         
-        compliance_text = """
-        <b>Product Certifications:</b><br/>
-        
+        product_cert_intro_text = """
+        <b>Product Certifications:</b>
+        """
+
+        aws_cert_text = """
         <b>AWS (American Welding Society) Certification:</b><br/>
         • A5.17 Specification for Carbon Steel Electrodes and Fluxes for SAW<br/>
-        • A5.23 Specification for Low-Alloy Steel Electrodes and Fluxes for SAW  <br/>
+        • A5.23 Specification for Low-Alloy Steel Electrodes and Fluxes for SAW<br/>
         • Product qualification testing and ongoing surveillance<br/>
-        • Certificate of Conformance for each product shipment<br/>
-        
+        • Certificate of Conformance for each product shipment
+        """
+
+        cwb_cert_text = """
         <b>CWB (Canadian Welding Bureau) Approval:</b><br/>
         • CWB W47.1 Certification of Companies for Welding<br/>
         • Product approval for use in Canadian pressure vessel applications<br/>
         • Quality system certification and periodic audits<br/>
-        • Canadian compliance for government and institutional projects<br/>
-        
+        • Canadian compliance for government and institutional projects
+        """
+
+        iso_cert_text = """
         <b>ISO 9001:2015 Quality Management:</b><br/>
         • Third-party certification of quality management system<br/>
         • Annual surveillance audits and continuous improvement<br/>
         • Customer confidence and international market access<br/>
-        • Process standardization and documentation requirements<br/>
-        
+        • Process standardization and documentation requirements
+        """
+
+        env_compliance_text = """
         <b>Environmental Compliance:</b><br/>
         • Provincial environmental permits for manufacturing operations<br/>
         • Air emissions compliance with Alberta Environment standards<br/>
         • Waste management and recycling program implementation<br/>
-        • Environmental management system (ISO 14001 consideration)<br/>
-        
+        • Environmental management system (ISO 14001 consideration)
+        """
+
+        safety_compliance_text = """
         <b>Workplace Safety:</b><br/>
         • Alberta OHS compliance and safety management system<br/>
         • WHMIS training and hazardous material management<br/>
         • Emergency response planning and equipment<br/>
         • Regular safety audits and incident reporting systems
         """
-        
-        self.add_body_text(compliance_text)
+
+        self.add_body_text(product_cert_intro_text)
+        self.add_body_text(aws_cert_text)
+        self.add_body_text(cwb_cert_text)
+        self.add_body_text(iso_cert_text)
+        self.add_body_text(env_compliance_text)
+        self.add_body_text(safety_compliance_text)
         
         # Compliance timeline
         timeline_data = [
@@ -472,32 +499,40 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Supply Chain Strategy")
         
-        supply_chain_text = """
+        canadian_content_text = """
         <b>Canadian Content Maximization:</b>
-        FluxGen prioritizes Canadian suppliers to achieve 80-90% domestic content, supporting local 
+        FluxGen prioritizes Canadian suppliers to achieve 80-90% domestic content, supporting local
         economy and reducing supply chain risk.
-        <br/>
+        """
+
+        supplier_qual_text = """
         <b>Supplier Qualification:</b><br/>
         • Technical capability assessment and quality system audits<br/>
         • Financial stability evaluation and business continuity planning<br/>
         • Logistics capability and delivery performance tracking<br/>
         • Environmental and social responsibility compliance<br/>
-        • Long-term partnership potential and strategic alignment<br/>
-        
+        • Long-term partnership potential and strategic alignment
+        """
+
+        inventory_mgmt_text = """
         <b>Inventory Management:</b><br/>
         • 30-45 day safety stock for primary raw materials<br/>
         • 15-30 day inventory for secondary materials<br/>
         • Seasonal purchasing for cost optimization<br/>
         • Just-in-time delivery for packaging materials<br/>
-        • Strategic stockpiling for supply disruption mitigation<br/>
-        
+        • Strategic stockpiling for supply disruption mitigation
+        """
+
+        quality_assurance_text = """
         <b>Quality Assurance:</b><br/>
         • Certificate of analysis for every shipment<br/>
         • Incoming inspection and testing procedures<br/>
         • Supplier corrective action processes<br/>
         • Alternative source qualification and approval<br/>
-        • Continuous monitoring of supplier performance<br/>
-        
+        • Continuous monitoring of supplier performance
+        """
+
+        cost_mgmt_text = """
         <b>Cost Management:</b><br/>
         • Annual supply agreements with price escalation clauses<br/>
         • Volume commitments for preferential pricing<br/>
@@ -505,8 +540,12 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         • Transportation optimization and freight consolidation<br/>
         • Waste reduction and material utilization improvement
         """
-        
-        self.add_body_text(supply_chain_text)
+
+        self.add_body_text(canadian_content_text)
+        self.add_body_text(supplier_qual_text)
+        self.add_body_text(inventory_mgmt_text)
+        self.add_body_text(quality_assurance_text)
+        self.add_body_text(cost_mgmt_text)
         self.add_spacer()
     
     def _add_technical_standards(self):
@@ -529,7 +568,7 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Performance Testing Protocols")
         
-        testing_text = """
+        performance_testing_text = """
         <b>Welding Performance Testing:</b>
         All FluxGen products undergo comprehensive performance testing according to AWS A4.2 procedures:
         <br/>
@@ -538,22 +577,28 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         • <b>Impact Testing:</b> Charpy V-notch testing at specified temperatures<br/>
         • <b>Hardness Testing:</b> Brinell hardness of weld metal and heat-affected zone<br/>
         • <b>Chemical Analysis:</b> Weld metal composition verification<br/>
-        • <b>Radiographic Testing:</b> Weld quality and discontinuity assessment<br/>
-        
+        • <b>Radiographic Testing:</b> Weld quality and discontinuity assessment
+        """
+
+        special_testing_text = """
         <b>Special Testing Requirements:</b><br/>
         • <b>Hydrogen Testing:</b> Diffusible hydrogen measurement per AWS A4.3<br/>
         • <b>Sour Service Testing:</b> For oil & gas applications per NACE MR0175<br/>
         • <b>Low Temperature Testing:</b> Impact testing down to -46°C for arctic applications<br/>
         • <b>Fatigue Testing:</b> Cyclic loading performance for dynamic applications<br/>
-        • <b>Corrosion Testing:</b> Salt spray and atmospheric exposure testing<br/>
-        
+        • <b>Corrosion Testing:</b> Salt spray and atmospheric exposure testing
+        """
+
+        process_qual_text = """
         <b>Process Qualification:</b><br/>
         • Welding Procedure Specification (WPS) development<br/>
         • Procedure Qualification Record (PQR) testing<br/>
         • Welder Performance Qualification support<br/>
         • Pre-qualified joint design assistance<br/>
-        • Technical support for customer applications<br/>
-        
+        • Technical support for customer applications
+        """
+
+        documentation_cert_text = """
         <b>Documentation & Certification:</b><br/>
         • Material Test Reports (MTR) for each batch<br/>
         • Certificate of Compliance with applicable standards<br/>
@@ -561,8 +606,11 @@ class TechnicalSpecsGenerator(BaseDocumentGenerator):
         • Application guides and technical bulletins<br/>
         • Welding procedure recommendations
         """
-        
-        self.add_body_text(testing_text)
+
+        self.add_body_text(performance_testing_text)
+        self.add_body_text(special_testing_text)
+        self.add_body_text(process_qual_text)
+        self.add_body_text(documentation_cert_text)
         self.add_spacer()
     
     def generate(self) -> Path:

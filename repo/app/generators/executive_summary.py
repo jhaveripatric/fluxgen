@@ -193,12 +193,14 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         production_targets = self.db.get_production_targets()
         total_capacity = sum(target.get('output_kg_month', 0) for target in production_targets)
         
-        economic_text = f"""
+        # Break into intro and bullet points to prevent overflow
+        intro_text = """
         FluxGen's operations will deliver significant economic benefits to the Airdrie region and Alberta:
+        """
+        
+        benefits_text = f"""
+        • <b>Job Creation:</b> Direct employment of 15-25 full-time positions across manufacturing, quality control, logistics, and administration
         <br/>
-        • <b>Job Creation:</b> Direct employment of 15-25 full-time positions across manufacturing, quality control, 
-          logistics, and administration
-          <br/>
         • <b>Local Sourcing:</b> Prioritizing Canadian suppliers for 80-90% of raw materials, supporting domestic supply chains
         <br/>
         • <b>Manufacturing Capacity:</b> Up to {total_capacity:,} kg/month production capacity at full scale
@@ -208,20 +210,27 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         • <b>Skills Development:</b> Training programs and partnerships with local technical institutions
         <br/>
         • <b>Tax Revenue:</b> Contributing to municipal and provincial tax base through property, corporate, and employment taxes
-        <br/>
+        """
+        
+        conclusion_text = """
         The facility will serve as a hub for welding materials innovation and manufacturing excellence in Western Canada.
         """
         
-        self.add_body_text(economic_text)
+        self.add_body_text(intro_text)
+        self.add_body_text(benefits_text)
+        self.add_body_text(conclusion_text)
         self.add_spacer()
     
     def _add_site_requirements(self):
         """Add site requirements summary"""
         self.add_heading1("Facility Requirements")
         
-        site_text = """
+        # Break into intro, requirements, and conclusion
+        intro_text = """
         FluxGen requires a strategic industrial location with the following specifications:
-        <br/>
+        """
+        
+        requirements_text = """
         • <b>Land Area:</b> 10-15 acres for manufacturing facility, raw material storage, and future expansion
         <br/>
         • <b>Utilities:</b> High-capacity electrical service (1-2 MW), natural gas access, reliable water supply
@@ -231,19 +240,24 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         • <b>Zoning:</b> Heavy industrial zoning with permits for chemical processing and manufacturing operations
         <br/>
         • <b>Environmental:</b> Compliance with environmental regulations, dust control, and waste management systems
-        <br/>
+        """
+        
+        conclusion_text = """
         The Airdrie location provides excellent access to regional markets, transportation infrastructure, 
         and skilled workforce while maintaining competitive operating costs.
         """
         
-        self.add_body_text(site_text)
+        self.add_body_text(intro_text)
+        self.add_body_text(requirements_text)
+        self.add_body_text(conclusion_text)
         self.add_spacer()
     
     def _add_next_steps(self):
         """Add next steps section"""
         self.add_heading1("Next Steps & Milestones")
         
-        next_steps_text = """
+        # Break into separate paragraphs to prevent overflow
+        immediate_text = """
         <b>Immediate Priorities (Next 90 Days):</b>
         <br/>
         • Complete market validation and customer engagement
@@ -255,7 +269,9 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         • Complete detailed equipment specifications and vendor selection
         <br/>
         • Advance corporate structure and regulatory compliance
-        <br/>
+        """
+        
+        phase1_text = """
         <b>Phase 1 Implementation (6-12 Months):</b>
         <br/>
         • Secure facility lease/purchase and begin build-out
@@ -267,7 +283,9 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         • Obtain necessary permits and certifications
         <br/>
         • Begin pilot production and customer trials
-        <br/>
+        """
+        
+        longterm_text = """
         <b>Long-term Objectives (12-24 Months):</b>
         <br/>
         • Achieve consistent production quality and customer satisfaction
@@ -279,7 +297,9 @@ class ExecutiveSummaryGenerator(BaseDocumentGenerator):
         • Evaluate opportunities for additional facilities or capabilities
         """
         
-        self.add_body_text(next_steps_text)
+        self.add_body_text(immediate_text)
+        self.add_body_text(phase1_text)
+        self.add_body_text(longterm_text)
         self.add_spacer()
     
     def generate(self) -> Path:

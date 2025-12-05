@@ -310,7 +310,7 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Competitive Positioning")
         
-        positioning_text = """
+        global_mfg_text = """
         <b>Global Manufacturers (Lincoln Electric, ESAB, Miller):</b>
         <br/>
         • Strengths: Established brands, broad product lines, technical resources
@@ -320,8 +320,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Market Position: Premium segment, large customers
         <br/>
         • FluxGen Strategy: Compete on service, delivery, and local technical support
-        <br/>
-        
+        """
+
+        regional_dist_text = """
         <b>Regional Distributors:</b>
         <br/>
         • Strengths: Local relationships, inventory, established sales channels
@@ -331,8 +332,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Market Position: Mid-market, relationship-based sales
         <br/>
         • FluxGen Strategy: Direct sales to large customers, partner with distributors for smaller accounts
-        <br/>
-        
+        """
+
+        asian_import_text = """
         <b>Asian Import Suppliers:</b>
         <br/>
         • Strengths: Low manufacturing costs, high volume capacity
@@ -343,8 +345,10 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         <br/>
         • FluxGen Strategy: Compete on quality, reliability, and local presence
         """
-        
-        self.add_body_text(positioning_text)
+
+        self.add_body_text(global_mfg_text)
+        self.add_body_text(regional_dist_text)
+        self.add_body_text(asian_import_text)
         
         # Competitive advantages table
         advantages_data = [
@@ -381,7 +385,7 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Market Growth Drivers")
         
-        growth_text = """
+        infrastructure_growth_text = """
         <b>Infrastructure Investment Programs:</b>
         <br/>
         • Federal Infrastructure Plan: $180+ billion over 12 years
@@ -391,8 +395,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Municipal infrastructure renewal: Aging bridges, water systems, transit
         <br/>
         • Green infrastructure: Clean energy, environmental projects
-        <br/>
-        
+        """
+
+        energy_growth_text = """
         <b>Energy Sector Developments:</b>
         <br/>
         • Pipeline expansion and replacement projects (TMX, Coastal GasLink)
@@ -402,8 +407,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Renewable energy infrastructure (wind, solar, hydrogen)
         <br/>
         • Carbon capture and storage facility construction
-        <br/>
-        
+        """
+
+        manufacturing_growth_text = """
         <b>Manufacturing Sector Growth:</b>
         <br/>
         • Agricultural equipment manufacturing expansion
@@ -413,20 +419,24 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Aerospace and defense manufacturing
         <br/>
         • Clean technology manufacturing incentives
-        <br/>
-        
+        """
+
+        supply_chain_growth_text = """
         <b>Supply Chain Localization Trends:</b>
         <br/>
         • Government "Buy Canadian" policies
         <br/>
-        • Corporate supply chain risk mitigation strategies 
-        <br/> 
+        • Corporate supply chain risk mitigation strategies
+        <br/>
         • Reduced dependency on offshore suppliers
         <br/>
         • Shorter supply chains for better responsiveness
         """
-        
-        self.add_body_text(growth_text)
+
+        self.add_body_text(infrastructure_growth_text)
+        self.add_body_text(energy_growth_text)
+        self.add_body_text(manufacturing_growth_text)
+        self.add_body_text(supply_chain_growth_text)
         
         # Market penetration strategy
         penetration_data = [
@@ -462,7 +472,7 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Customer Needs Analysis")
         
-        customer_needs_text = """
+        large_fabricators_needs_text = """
         <b>Large Fabricators & Contractors:</b>
         <br/>
         • Consistent quality and performance across large volumes
@@ -476,8 +486,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Vendor certification and quality documentation
         <br/>
         • Emergency supply capability for critical projects
-        <br/>
-        
+        """
+
+        mid_size_mfg_needs_text = """
         <b>Mid-Size Manufacturing Companies:</b>
         <br/>
         • Flexible order quantities and packaging options
@@ -491,8 +502,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Product customization for specific applications
         <br/>
         • Strong supplier relationships and account management
-        <br/>
-        
+        """
+
+        maintenance_needs_text = """
         <b>Maintenance & Repair Operations:</b>
         <br/>
         • Wide product range for diverse repair needs
@@ -507,8 +519,10 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         <br/>
         • Flexible payment terms
         """
-        
-        self.add_body_text(customer_needs_text)
+
+        self.add_body_text(large_fabricators_needs_text)
+        self.add_body_text(mid_size_mfg_needs_text)
+        self.add_body_text(maintenance_needs_text)
         
         # Customer acquisition strategy
         acquisition_data = [
@@ -542,14 +556,15 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Value-Based Pricing Strategy")
         
-        pricing_text = """
+        pricing_philosophy_text = """
         <b>Pricing Philosophy:</b>
         <br/>
-        FluxGen employs value-based pricing that reflects the total cost of ownership benefits 
+        FluxGen employs value-based pricing that reflects the total cost of ownership benefits
         <br/>
         provided to customers, including reduced inventory costs, faster delivery, and technical support.
-        <br/>
-        
+        """
+
+        pricing_components_text = """
         <b>Pricing Components:</b>
         <br/>
         • Base Product Cost: Competitive with imports + local value premium
@@ -561,8 +576,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Emergency Premium: 30-50% for rush orders and critical supply
         <br/>
         • Volume Discounts: 5-15% for large contracts and loyal customers
-        <br/>
-        
+        """
+
+        pricing_positioning_text = """
         <b>Competitive Positioning:</b>
         <br/>
         • Position between import prices and premium distributor markups
@@ -572,8 +588,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Maintain pricing flexibility for market penetration
         <br/>
         • Focus on total cost of ownership, not just unit price
-        <br/>
-        
+        """
+
+        pricing_dynamics_text = """
         <b>Dynamic Pricing Factors:</b>
         <br/>
         • Raw material cost fluctuations (quarterly adjustments)
@@ -586,8 +603,11 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         <br/>
         • Geographic market differences and logistics costs
         """
-        
-        self.add_body_text(pricing_text)
+
+        self.add_body_text(pricing_philosophy_text)
+        self.add_body_text(pricing_components_text)
+        self.add_body_text(pricing_positioning_text)
+        self.add_body_text(pricing_dynamics_text)
         
         # Total cost of ownership comparison
         tco_data = [
@@ -668,7 +688,7 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         
         self.add_heading2("Success Metrics & KPIs")
         
-        metrics_text = """
+        penetration_metrics_text = """
         <b>Market Penetration Metrics:</b>
         <br/>
         • Market share growth: Target 1% annually
@@ -680,8 +700,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Geographic expansion: New territory annually
         <br/>
         • Product penetration: Average 3+ products per customer
-        <br/>
-        
+        """
+
+        competitive_metrics_text = """
         <b>Competitive Position Metrics:</b>
         <br/>
         • Win rate vs. competitors: Target 60%+ for qualified opportunities
@@ -693,8 +714,9 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Brand recognition: Unaided awareness growth in target markets
         <br/>
         • Technical leadership: Innovation and product development metrics
-        <br/>
-        
+        """
+
+        operational_metrics_text = """
         <b>Operational Excellence Metrics:</b>
         <br/>
         • Order fulfillment: 95%+ on-time delivery
@@ -706,14 +728,18 @@ class MarketAnalysisGenerator(BaseDocumentGenerator):
         • Technical support response: <24 hour response time
         <br/>
         • Emergency supply capability: 48-hour critical delivery
-        <br/>
-        
-        The market analysis demonstrates a clear opportunity for FluxGen to establish a strong position 
-        in the Western Canada SAW flux market through superior local service, quality products, and 
+        """
+
+        market_conclusion_text = """
+        The market analysis demonstrates a clear opportunity for FluxGen to establish a strong position
+        in the Western Canada SAW flux market through superior local service, quality products, and
         competitive pricing.
         """
-        
-        self.add_body_text(metrics_text)
+
+        self.add_body_text(penetration_metrics_text)
+        self.add_body_text(competitive_metrics_text)
+        self.add_body_text(operational_metrics_text)
+        self.add_body_text(market_conclusion_text)
         self.add_spacer()
     
     def generate(self) -> Path:
